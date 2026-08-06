@@ -1,5 +1,6 @@
 import Script from 'next/script';
 import { METRIKA_ID } from '@/lib/site';
+import GoogleAnalytics from './GoogleAnalytics';
 
 /**
  * Яндекс Метрика. Счётчик один на весь сайт, вставляется в корневом макете.
@@ -24,6 +25,7 @@ ym(${METRIKA_ID}, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"da
           <img src={`https://mc.yandex.ru/watch/${METRIKA_ID}`} style={{ position: 'absolute', left: '-9999px' }} alt="" />
         </div>
       </noscript>
+      <GoogleAnalytics />
     </>
   );
 }

@@ -115,10 +115,12 @@ if (/reg\.ru[^"']*utm_source=servercalc/.test(regru)) {
 // 6. счётчик
 console.log('\n4. Аналитика и техника');
 const home = pages.get('/') || '';
-if (home.includes('mc.yandex.ru/metrika/tag.js?id=111249191')) console.log('  счётчик Метрики 111249191 на месте');
+if (home.includes('mc.yandex.ru/metrika/tag.js?id=111369260')) console.log('  счётчик Метрики 111369260 на месте');
 else fail('счётчик Метрики не найден на главной');
-if (home.includes('mc.yandex.ru/watch/111249191')) console.log('  noscript-пиксель на месте');
+if (home.includes('mc.yandex.ru/watch/111369260')) console.log('  noscript-пиксель на месте');
 else warn('noscript-пиксель Метрики не найден');
+if (home.includes('googletagmanager.com/gtag/js?id=G-WE8E8VWCS7')) console.log('  Google Analytics G-WE8E8VWCS7 на месте');
+else fail('Google Analytics не найден на главной');
 
 // 7. SEO-обвязка
 const sitemap = await (await fetch(BASE + '/sitemap.xml')).text();
