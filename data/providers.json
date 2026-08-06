@@ -47,7 +47,8 @@
       "note": "Запрещена контекстная реклама по бренду (п. 3.7 регламента)",
       "payoutInternal": "от 390 ₽, банк или ЮMoney"
     },
-    "verifiedAt": "2026-08-02"
+    "verifiedAt": "2026-08-02",
+    "descriptionEn": "A Russian cloud with data centers in Moscow and St. Petersburg. Clear panel, hourly billing, snapshots and private networks. One of the most predictable options for websites, 1C and Bitrix"
   },
   {
     "slug": "adminvps",
@@ -98,7 +99,8 @@
       "note": "Самозанятым не платят, нужен ИП, юрлицо или договор ГПХ",
       "payoutInternal": "от 5 000 ₽"
     },
-    "verifiedAt": "2026-08-02"
+    "verifiedAt": "2026-08-02",
+    "descriptionEn": "A budget VPS with a fast start and locations in Russia, Europe and Kazakhstan. One of the lowest entry points among Russian providers"
   },
   {
     "slug": "hostman",
@@ -149,7 +151,8 @@
       "note": "Условия сверить в кабинете партнёра",
       "payoutInternal": "уточняется"
     },
-    "verifiedAt": "2026-08-02"
+    "verifiedAt": "2026-08-02",
+    "descriptionEn": "A managed cloud that deploys apps from your repository in a few clicks. A fit for teams without dedicated DevOps: updates, monitoring and load balancing are handled by the platform."
   },
   {
     "slug": "ishosting",
@@ -200,7 +203,8 @@
       "payoutInternal": "от $20, крипта или карта"
     },
     "verifiedAt": "2026-08-02",
-    "noUtm": true
+    "noUtm": true,
+    "descriptionEn": "Very broad geography: more than forty VPS locations plus a separate dedicated-server line. Handy when you need a specific host country rather than an abstract “Europe”"
   },
   {
     "slug": "aeserver",
@@ -247,7 +251,8 @@
       "note": "Публичный FAQ описывает shared hosting, серверные условия сверить с менеджером",
       "payoutInternal": "уточняется"
     },
-    "verifiedAt": "2026-08-02"
+    "verifiedAt": "2026-08-02",
+    "descriptionEn": "A local Emirati provider with a data center in Dubai. Best for projects with an audience in the UAE and the Gulf, where low latency and a local presence matter"
   },
   {
     "slug": "datapacket",
@@ -294,7 +299,8 @@
       "note": "Не путать с DataPacket.com, это разные компании",
       "payoutInternal": "от $5, холд 30 дней"
     },
-    "verifiedAt": "2026-08-02"
+    "verifiedAt": "2026-08-02",
+    "descriptionEn": "Focused on performance and dedicated servers for production. A choice for heavy workloads where stable capacity matters more than a low price."
   },
   {
     "slug": "truehost",
@@ -341,7 +347,8 @@
       "note": "Выплаты в местной валюте, сверить метод",
       "payoutInternal": "около $30"
     },
-    "verifiedAt": "2026-08-02"
+    "verifiedAt": "2026-08-02",
+    "descriptionEn": "An inexpensive cloud with an easy start and global presence. A reasonable pick to launch a small project when you just need a cheap, no-frills server."
   },
   {
     "slug": "ultahost",
@@ -390,7 +397,8 @@
       "note": "Публичная модель не recurring, для revshare нужен индивидуальный договор",
       "payoutInternal": "уточняется"
     },
-    "verifiedAt": "2026-08-02"
+    "verifiedAt": "2026-08-02",
+    "descriptionEn": "Managed NVMe hosting focused on site speed and WordPress. They take on part of the administration, which helps if you have no sysadmin of your own."
   },
   {
     "slug": "vpsorg",
@@ -439,7 +447,8 @@
       "note": "Щедрые условия, обязательна тестовая покупка и первая выплата",
       "payoutInternal": "от $10, Stripe или PayPal"
     },
-    "verifiedAt": "2026-08-02"
+    "verifiedAt": "2026-08-02",
+    "descriptionEn": "A general-purpose mid-range provider with flexible configurations. A fit when you need a predictable server for typical workloads without tying to a specific country."
   },
   {
     "slug": "regru",
@@ -485,7 +494,8 @@
       "note": "Партнёрка подтверждена, ссылка из выгрузки владельца",
       "payoutInternal": "от 200 ₽, только рублёвый счёт банка РФ"
     },
-    "verifiedAt": "2026-08-02"
+    "verifiedAt": "2026-08-02",
+    "descriptionEn": "A large Russian registrar and host. Convenient when you want domain, hosting and server in one account, with proper invoicing"
   },
   {
     "slug": "fornex",
@@ -531,15 +541,16 @@
       "note": "Партнёрка подтверждена, по ссылке применяется скидка 15% на VPS",
       "payoutInternal": "баланс или USDT"
     },
-    "verifiedAt": "2026-08-02"
+    "verifiedAt": "2026-08-02",
+    "descriptionEn": "A provider with Russian-speaking support and European locations. A range from a simple VPS to dedicated servers."
   },
   {
     "slug": "vdsina",
     "name": "VDSina",
     "color": "#3b5bdb",
     "country": "RU",
-    "affiliateStatus": "pending",
-    "url": null,
+    "affiliateStatus": "active",
+    "url": "https://vdsina.ru/?partner=5xwp7v2732dp",
     "site": "https://vdsina.ru",
     "geos": [
       "ru",
@@ -579,7 +590,8 @@
       "note": "Подать заявку в первой волне",
       "payoutInternal": "USDT от 5 000 ₽, нужно 5 активных клиентов за год"
     },
-    "verifiedAt": "2026-08-02"
+    "verifiedAt": "2026-08-02",
+    "descriptionEn": "An inexpensive provider with hourly billing and a clear plan line-up. Often chosen for small services and test stands."
   },
   {
     "slug": "ruvds",
@@ -626,7 +638,8 @@
       "note": "Партнёрка подтверждена, ссылка из выгрузки владельца",
       "payoutInternal": "условия не опубликованы"
     },
-    "verifiedAt": "2026-08-02"
+    "verifiedAt": "2026-08-02",
+    "descriptionEn": "A provider with many data centers and dedicated products for 1C, trading and GPU. Notable in the corporate segment."
   },
   {
     "slug": "firstvds",
@@ -674,7 +687,8 @@
       "note": "Партнёрка подтверждена, ссылка из выгрузки владельца",
       "payoutInternal": "только ИП или юрлицо по договору"
     },
-    "verifiedAt": "2026-08-02"
+    "verifiedAt": "2026-08-02",
+    "descriptionEn": "One of the older Russian VDS providers, with a range from budget servers to GPU and storage."
   },
   {
     "slug": "cloud4box",
@@ -721,6 +735,7 @@
       "cookie": "не опубликован",
       "note": "Партнёрка подтверждена, ссылка из выгрузки владельца",
       "payoutInternal": "условия в кабинете"
-    }
+    },
+    "descriptionEn": "A Russian provider with its own data center in Moscow and a flexible configurator: resources are assembled for the task rather than picked from a fixed grid"
   }
 ]

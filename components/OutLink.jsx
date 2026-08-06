@@ -1,11 +1,15 @@
 'use client';
 
+import { usePathname } from 'next/navigation';
 import { providerLink } from '@/lib/utm';
 import { goal, GOALS } from '@/lib/metrika';
+import { localeFromPath } from '@/lib/i18n';
 
 /**
  * Единственная точка выхода на провайдера.
  * Здесь и только здесь проставляются UTM, атрибуты rel и цель Метрики.
+ * utm_medium несёт язык страницы (ru или eng), чтобы в кабинете провайдера
+ * было видно, с какой языковой версии пришёл клик.
  * Если провайдер без партнёрства, отдаётся обычная ссылка на его сайт
  */
 export default function OutLink({
@@ -16,7 +20,10 @@ export default function OutLink({
   className = 'btn btn-brass btn-sm',
   showDisclosure = false,
 }) {
-  const { href, rel, partner } = providerLink(provider, { campaign, content });
+  const pathname = usePathname() || '/';
+  const en = localeFromPath(pathname) === 'en';
+  const medium = en ? 'eng' : 'ru';
+  const { href, rel, partner } = providerLink(provider, { campaign, content, medium });
   if (!href) return null;
 
   return (
@@ -33,20 +40,23 @@ export default function OutLink({
             campaign: campaign || 'unknown',
             partner: partner ? 1 : 0,
           });
-          // и отдельная цель на каждого провайдера в формате go_<slug>:
-          // так клики по конкретному провайдеру видны в Метрике отдельной
-          // строкой без сегментации по параметрам. Стандарт тот же,
-          // что на ПодборVPS: go_timeweb, go_adminvps и так далее
+          // и отдельная цель на каждого провайдера в формате go_<slug>
           goal(`go_${provider.slug}`);
         }}
       >
-        {children || (partner ? 'Перейти к провайдеру' : 'Открыть сайт')}
+        {children || (partner
+          ? (en ? 'Go to provider' : 'Перейти к провайдеру')
+          : (en ? 'Visit site' : 'Открыть сайт'))}
       </a>
       {showDisclosure && (
         <p className="disclosure">
           {partner
-            ? 'Переход партнёрский: при оформлении услуги мы получим вознаграждение, цена для вас не меняется'
-            : 'Обычная ссылка, партнёрских отношений с этим провайдером нет'}
+            ? (en
+                ? 'Affiliate link: if you sign up we earn a commission at no extra cost to you'
+                : 'Переход партнёрский: при оформлении услуги мы получим вознаграждение, цена для вас не меняется')
+            : (en
+                ? 'A plain link; we have no affiliate relationship with this provider'
+                : 'Обычная ссылка, партнёрских отношений с этим провайдером нет')}
         </p>
       )}
     </>
