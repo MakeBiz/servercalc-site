@@ -3,8 +3,9 @@ import JsonLd from './JsonLd';
 import { absUrl } from '@/lib/site';
 
 /** items: [{ href, label }, ...], последний элемент отображается без ссылки */
-export default function Breadcrumbs({ items = [] }) {
-  const all = [{ href: '/', label: 'Главная' }, ...items];
+export default function Breadcrumbs({ items = [], locale = 'ru' }) {
+  const home = locale === 'en' ? { href: '/en', label: 'Home' } : { href: '/', label: 'Главная' };
+  const all = [home, ...items];
 
   return (
     <>

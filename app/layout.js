@@ -13,7 +13,9 @@ import Footer from '@/components/Footer';
 import CookieBanner from '@/components/CookieBanner';
 import Metrika from '@/components/Metrika';
 import DemoStrip from '@/components/DemoStrip';
+import HtmlLang from '@/components/HtmlLang';
 import { SITE, SITE_URL, SITE_NAME } from '@/lib/site';
+import { STATS } from '@/lib/data';
 import { HAS_PROMOS } from '@/lib/promos';
 
 export const metadata = {
@@ -46,10 +48,16 @@ export default function RootLayout({ children }) {
   return (
     <html lang="ru">
       <body>
+        <HtmlLang />
         <DemoStrip />
         <Header showPromos={HAS_PROMOS} />
         <main>{children}</main>
-        <Footer />
+        <Footer
+          verifiedAt={STATS.verifiedAt}
+          hasPromos={HAS_PROMOS}
+          domain={SITE.domain}
+          contactEmail={SITE.contactEmail}
+        />
         <CookieBanner />
         <Metrika />
       </body>

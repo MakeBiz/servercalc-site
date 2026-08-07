@@ -1,11 +1,11 @@
 import Breadcrumbs from './Breadcrumbs';
 
 /** Тёмная шапка внутренней страницы: крошки, надзаголовок, H1, лид и бейджи */
-export default function PageHead({ eyebrow, title, lead, crumbs = [], badges = null, children }) {
+export default function PageHead({ eyebrow, title, lead, crumbs = [], badges = null, children, locale = 'ru' }) {
   return (
     <section className="pagehead ink">
       <div className="wrap pagehead-in">
-        <Breadcrumbs items={crumbs} />
+        <Breadcrumbs items={crumbs} locale={locale} />
         {eyebrow && (
           <div className="eyebrow">
             <span className="label label-brass">{eyebrow}</span>

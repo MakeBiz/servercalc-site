@@ -1,11 +1,19 @@
-import Link from 'next/link';
-import Logo from './Logo';
-import { SITE, SITE_NAME } from '@/lib/site';
-import { STATS } from '@/lib/data';
-import { HAS_PROMOS } from '@/lib/promos';
-import { ruDate } from '@/lib/format';
+'use client';
 
-export default function Footer() {
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
+import Logo from './Logo';
+import { SITE_NAME } from '@/lib/site';
+import { fmtDate } from '@/lib/format';
+import { localeFromPath, t } from '@/lib/i18n';
+
+export default function Footer({ verifiedAt, hasPromos = false, domain, contactEmail }) {
+  const pathname = usePathname() || '/';
+  const locale = localeFromPath(pathname);
+  const tt = t(locale);
+  const f = tt.footer;
+  const home = locale === 'en' ? '/en' : '/';
+  const L = (ru, en) => (locale === 'en' ? en : ru);
   const year = new Date().getUTCFullYear();
 
   return (
@@ -13,51 +21,48 @@ export default function Footer() {
       <div className="wrap">
         <div className="footer-grid">
           <div>
-            <Link href="/" className="brand" style={{ marginBottom: 14 }}>
+            <Link href={home} className="brand" style={{ marginBottom: 14 }}>
               <Logo size={24} />
               <span>Server<em>Calc</em></span>
             </Link>
-            <p style={{ maxWidth: 320, marginTop: 12 }}>
-              Справочный каталог виртуальных серверов. Подбираем по задаче, ресурсам и географии,
-              показываем дату проверки каждой цены
-            </p>
+            <p style={{ maxWidth: 320, marginTop: 12 }}>{f.about}</p>
             <p style={{ marginTop: 14 }}>
-              <span className="badge badge-brass">база проверена {ruDate(STATS.verifiedAt)}</span>
+              <span className="badge badge-brass">{f.verified} {fmtDate(verifiedAt, locale)}</span>
             </p>
           </div>
 
           <div>
-            <h4>Подбор</h4>
+            <h4>{f.colPick}</h4>
             <ul>
-              <li><Link href="/#podbor">Калькулятор</Link></li>
-              <li><Link href="/catalog">Каталог тарифов</Link></li>
-              <li><Link href="/vps-dlya">Подбор под задачу</Link></li>
-              <li><Link href="/vps">Подбор по географии</Link></li>
-              {HAS_PROMOS && <li><Link href="/akcii">Акции и промокоды</Link></li>}
+              <li><Link href={`${home === '/' ? '' : home}/#podbor`}>{f.calculator}</Link></li>
+              <li><Link href={L('/catalog', '/en/catalog')}>{f.catalog}</Link></li>
+              <li><Link href={L('/vps-dlya', '/en/vps-for')}>{f.byTask}</Link></li>
+              <li><Link href={L('/vps', '/en/vps-in')}>{f.byGeo}</Link></li>
+              {hasPromos && <li><Link href={L('/akcii', '/en/deals')}>{f.promos}</Link></li>}
             </ul>
           </div>
 
           <div>
-            <h4>Провайдеры</h4>
+            <h4>{f.colProviders}</h4>
             <ul>
-              <li><Link href="/provajdery">Все провайдеры</Link></li>
-              <li><Link href="/provajdery/timeweb">Timeweb Cloud</Link></li>
-              <li><Link href="/provajdery/adminvps">AdminVPS</Link></li>
-              <li><Link href="/provajdery/hostman">Hostman</Link></li>
+              <li><Link href={L('/provajdery', '/en/providers')}>{f.allProviders}</Link></li>
+              <li><Link href={L('/provajdery/timeweb', '/en/providers/timeweb')}>Timeweb Cloud</Link></li>
+              <li><Link href={L('/provajdery/adminvps', '/en/providers/adminvps')}>AdminVPS</Link></li>
+              <li><Link href={L('/provajdery/hostman', '/en/providers/hostman')}>Hostman</Link></li>
             </ul>
           </div>
 
           <div>
-            <h4>О сервисе</h4>
+            <h4>{f.colAbout}</h4>
             <ul>
-              <li><Link href="/metodologiya">Методология подбора</Link></li>
-              <li><Link href="/o-proekte">О проекте</Link></li>
-              <li><Link href="/novosti">Новости и обзоры</Link></li>
-              <li><Link href="/politika-konfidencialnosti">Политика конфиденциальности</Link></li>
-              <li><Link href="/cookie">Использование cookie</Link></li>
-              {SITE.contactEmail && (
+              <li><Link href={L('/metodologiya', '/en/methodology')}>{f.methodology}</Link></li>
+              <li><Link href={L('/o-proekte', '/en/about')}>{f.aboutPage}</Link></li>
+              <li><Link href={L('/novosti', '/en/news')}>{f.news}</Link></li>
+              <li><Link href={L('/politika-konfidencialnosti', '/en/privacy')}>{f.privacy}</Link></li>
+              <li><Link href={L('/cookie', '/en/cookie')}>{f.cookie}</Link></li>
+              {contactEmail && (
                 <li>
-                  <a href={`mailto:${SITE.contactEmail}`}>{SITE.contactEmail}</a>
+                  <a href={`mailto:${contactEmail}`}>{contactEmail}</a>
                 </li>
               )}
             </ul>
@@ -66,14 +71,12 @@ export default function Footer() {
 
         <div className="footer-bottom">
           <span>
-            {year} {SITE_NAME}, {SITE.domain}
+            {year} {SITE_NAME}, {domain}
           </span>
           <span style={{ maxWidth: 620 }}>
-            Сервис публикует справочную информацию о тарифах сторонних провайдеров. Часть переходов
-            к провайдерам партнёрские: если вы оформите услугу, мы получим вознаграждение, цена для
-            вас при этом не меняется. Размер вознаграждения не влияет на подбор,{' '}
-            <Link href="/metodologiya" style={{ textDecoration: 'underline' }}>
-              формула открыта
+            {f.disclosure}{' '}
+            <Link href={L('/metodologiya', '/en/methodology')} style={{ textDecoration: 'underline' }}>
+              {f.formulaOpen}
             </Link>
           </span>
         </div>

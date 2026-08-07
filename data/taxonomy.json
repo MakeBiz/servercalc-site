@@ -4,82 +4,109 @@
       "slug": "sajt",
       "icon": "🌐",
       "name": "Сайт или блог",
+      "nameEn": "Website or blog",
       "h1": "VPS для сайта и блога",
+      "h1En": "VPS for a website or blog",
       "ram": 2,
       "cpu": 1,
-      "intent": "Хостинг сайта, лендинга, портфолио или блога на WordPress"
+      "intent": "Хостинг сайта, лендинга, портфолио или блога на WordPress",
+      "intentEn": "Hosting for a website, landing page, portfolio or WordPress blog"
     },
     {
       "slug": "magazin",
       "icon": "🛒",
       "name": "Интернет-магазин",
+      "nameEn": "Online store",
       "h1": "VPS для интернет-магазина",
+      "h1En": "VPS for an online store",
       "ram": 4,
       "cpu": 2,
-      "intent": "Магазин на WooCommerce, OpenCart, Битрикс или своей CMS"
+      "intent": "Магазин на WooCommerce, OpenCart, Битрикс или своей CMS",
+      "intentEn": "A store on WooCommerce, OpenCart, Bitrix or a custom CMS"
     },
     {
       "slug": "1c-bitrix",
       "icon": "🧮",
       "name": "1С или Битрикс",
+      "nameEn": "1C or Bitrix",
       "h1": "VPS для 1С и Битрикс",
+      "h1En": "VPS for 1C and Bitrix",
       "ram": 4,
       "cpu": 2,
-      "intent": "1С:Предприятие, Битрикс24, корпоративные системы"
+      "intent": "1С:Предприятие, Битрикс24, корпоративные системы",
+      "intentEn": "1C:Enterprise, Bitrix24 and corporate systems"
     },
     {
       "slug": "telegram-bot",
       "icon": "🤖",
       "name": "Telegram-бот",
+      "nameEn": "Telegram bot",
       "h1": "VPS для Telegram-бота",
+      "h1En": "VPS for a Telegram bot",
       "ram": 2,
       "cpu": 1,
-      "intent": "Боты, вебхуки, небольшие сервисы с постоянным аптаймом"
+      "intent": "Боты, вебхуки, небольшие сервисы с постоянным аптаймом",
+      "intentEn": "Bots, webhooks and small always-on services"
     },
     {
       "slug": "baza-dannyh",
       "icon": "🗄️",
       "name": "База данных",
+      "nameEn": "Database",
       "h1": "VPS под базу данных",
+      "h1En": "VPS for a database",
       "ram": 8,
       "cpu": 4,
-      "intent": "PostgreSQL, MySQL, ClickHouse, Redis под нагрузкой"
+      "intent": "PostgreSQL, MySQL, ClickHouse, Redis под нагрузкой",
+      "intentEn": "PostgreSQL, MySQL, ClickHouse or Redis under load"
     },
     {
       "slug": "ai",
       "icon": "🧠",
       "name": "AI и ML",
+      "nameEn": "AI and ML",
       "h1": "VPS для AI и ML задач",
+      "h1En": "VPS for AI and ML workloads",
       "ram": 16,
       "cpu": 8,
-      "intent": "Инференс моделей, n8n с AI, векторные базы, свой интерфейс к языковой модели"
+      "intent": "Инференс моделей, n8n с AI, векторные базы, свой интерфейс к языковой модели",
+      "intentEn": "Model inference, n8n with AI, vector databases, your own LLM front-end"
     },
     {
       "slug": "game",
       "icon": "🎮",
       "name": "Игровой сервер",
+      "nameEn": "Game server",
       "h1": "VPS под игровой сервер",
+      "h1En": "VPS for a game server",
       "ram": 8,
       "cpu": 4,
-      "intent": "Minecraft, CS2, Rust, приватные игровые площадки"
+      "intent": "Minecraft, CS2, Rust, приватные игровые площадки",
+      "intentEn": "Minecraft, CS2, Rust and private game servers"
     },
     {
       "slug": "dev",
       "icon": "💻",
       "name": "Разработка и тесты",
+      "nameEn": "Development and testing",
       "h1": "VPS для разработки и тестов",
+      "h1En": "VPS for development and testing",
       "ram": 2,
       "cpu": 2,
-      "intent": "Стенды, CI/CD раннеры, песочницы, dev-окружения"
+      "intent": "Стенды, CI/CD раннеры, песочницы, dev-окружения",
+      "intentEn": "Staging, CI/CD runners, sandboxes and dev environments"
     },
     {
       "slug": "n8n",
       "icon": "⚡",
       "name": "n8n и автоматизация",
+      "nameEn": "n8n and automation",
       "h1": "VPS для n8n и автоматизации",
+      "h1En": "VPS for n8n and automation",
       "ram": 4,
       "cpu": 2,
-      "intent": "Self-hosted n8n, Coolify, автоматизация процессов"
+      "intent": "Self-hosted n8n, Coolify, автоматизация процессов",
+      "intentEn": "Self-hosted n8n, Coolify and process automation"
     }
   ],
   "geos": [
@@ -87,44 +114,62 @@
       "slug": "rossiya",
       "code": "ru",
       "name": "Россия",
+      "nameEn": "Russia",
       "h1": "VPS в России",
-      "note": "Низкий пинг из России, размещение данных внутри страны и закрывающие документы"
+      "h1En": "VPS in Russia",
+      "note": "Низкий пинг из России, размещение данных внутри страны и закрывающие документы",
+      "noteEn": "Low latency within Russia, in-country data residency and proper invoicing"
     },
     {
       "slug": "evropa",
       "code": "eu",
       "name": "Европа",
+      "nameEn": "Europe",
       "h1": "VPS в Европе",
-      "note": "Германия и Нидерланды: дешёвый трафик и хорошие каналы"
+      "h1En": "VPS in Europe",
+      "note": "Германия и Нидерланды: дешёвый трафик и хорошие каналы",
+      "noteEn": "Germany and the Netherlands: cheap traffic and good uplinks"
     },
     {
       "slug": "oae",
       "code": "uae",
       "name": "ОАЭ",
+      "nameEn": "UAE",
       "h1": "VPS в ОАЭ и Дубае",
-      "note": "Низкий пинг для аудитории Ближнего Востока, локальные юрлица"
+      "h1En": "VPS in the UAE and Dubai",
+      "note": "Низкий пинг для аудитории Ближнего Востока, локальные юрлица",
+      "noteEn": "Low latency for a Middle East audience, with local legal entities"
     },
     {
       "slug": "globalno",
       "code": "global",
       "name": "Глобально",
+      "nameEn": "Global",
       "h1": "VPS с локациями по миру",
-      "note": "Провайдеры с широкой сетью дата-центров"
+      "h1En": "VPS with locations worldwide",
+      "note": "Провайдеры с широкой сетью дата-центров",
+      "noteEn": "Providers with a wide data-center network"
     },
     {
       "slug": "ssha",
       "code": "us",
       "name": "США",
+      "nameEn": "USA",
       "h1": "VPS в США",
+      "h1En": "VPS in the USA",
       "note": "Площадки в США: имеет смысл, когда аудитория или сервисы находятся в Америке",
+      "noteEn": "Locations in the USA: useful when your audience or services are in America",
       "page": false
     },
     {
       "slug": "kazahstan",
       "code": "kz",
       "name": "Казахстан",
+      "nameEn": "Kazakhstan",
       "h1": "VPS в Казахстане",
+      "h1En": "VPS in Kazakhstan",
       "note": "Площадки в Казахстане",
+      "noteEn": "Locations in Kazakhstan",
       "page": false
     }
   ],
@@ -134,44 +179,63 @@
     "dataStatus": "live",
     "note": "Цены сверены вручную с прайсами провайдеров. Провайдеры без цен ждут проверки, их тарифы не показываются",
     "updated": "2026-08-03",
-    "rateNote": "Цены зарубежных провайдеров пересчитаны в рубли по курсу ЦБ на 6 августа 2026: 80.93 ₽ за доллар, 93.19 ₽ за евро, 22.04 ₽ за дирхам. Оригинальная валюта и сумма остаются в карточке тарифа, пересчёт можно проверить"
+    "rateNote": "Цены зарубежных провайдеров пересчитаны в рубли по курсу ЦБ на 6 августа 2026: 80.93 ₽ за доллар, 93.19 ₽ за евро, 22.04 ₽ за дирхам. Оригинальная валюта и сумма остаются в карточке тарифа, пересчёт можно проверить",
+    "rateNoteEn": "Prices are stored in rubles (converted at the Bank of Russia rate on August 6, 2026: 80.93 RUB per USD). On the English version they are shown in US dollars at the same rate; the original currency and amount stay on each plan card"
   },
   "requirements": [
     {
       "code": "nvme",
       "name": "NVMe-диск",
+      "nameEn": "NVMe disk",
       "short": "NVMe",
-      "note": "Быстрый диск. Разница заметна на базах данных, 1С и активных сайтах"
+      "shortEn": "NVMe",
+      "note": "Быстрый диск. Разница заметна на базах данных, 1С и активных сайтах",
+      "noteEn": "Fast storage. The difference shows on databases, 1C and busy sites"
     },
     {
       "code": "hourly",
       "name": "Почасовая оплата",
+      "nameEn": "Hourly billing",
       "short": "Почасовая",
-      "note": "Сервер можно поднять на день и выключить, платите за часы"
+      "shortEn": "Hourly",
+      "note": "Сервер можно поднять на день и выключить, платите за часы",
+      "noteEn": "Spin a server up for a day and shut it down, pay by the hour"
     },
     {
       "code": "testPeriod",
       "name": "Тестовый период",
+      "nameEn": "Trial period",
       "short": "Тест-период",
-      "note": "Провайдер даёт попробовать сервер до оплаты"
+      "shortEn": "Trial",
+      "note": "Провайдер даёт попробовать сервер до оплаты",
+      "noteEn": "The provider lets you try a server before paying"
     },
     {
       "code": "ddos",
       "name": "Защита от DDoS",
+      "nameEn": "DDoS protection",
       "short": "Анти-DDoS",
-      "note": "Базовая фильтрация на стороне провайдера"
+      "shortEn": "Anti-DDoS",
+      "note": "Базовая фильтрация на стороне провайдера",
+      "noteEn": "Basic filtering on the provider side"
     },
     {
       "code": "backup",
       "name": "Резервные копии",
+      "nameEn": "Backups",
       "short": "Бэкапы",
-      "note": "Штатные бэкапы и снапшоты в панели"
+      "shortEn": "Backups",
+      "note": "Штатные бэкапы и снапшоты в панели",
+      "noteEn": "Built-in backups and snapshots in the panel"
     },
     {
       "code": "panel",
       "name": "Панель управления",
+      "nameEn": "Control panel",
       "short": "Панель",
-      "note": "Веб-панель вместо чистой консоли"
+      "shortEn": "Panel",
+      "note": "Веб-панель вместо чистой консоли",
+      "noteEn": "A web panel instead of a bare console"
     }
   ]
 }

@@ -7,8 +7,9 @@ import { goal, GOALS } from '@/lib/metrika';
  * Промокод с кнопкой копирования. Копирование считается целью Метрики:
  * это тот же уровень намерения, что клик по партнёрской ссылке
  */
-export default function PromoCode({ code, provider }) {
+export default function PromoCode({ code, provider, locale = 'ru' }) {
   const [copied, setCopied] = useState(false);
+  const en = locale === 'en';
 
   async function copy() {
     try {
@@ -22,9 +23,9 @@ export default function PromoCode({ code, provider }) {
   }
 
   return (
-    <button type="button" className="promo-code" onClick={copy} title="Скопировать промокод">
+    <button type="button" className="promo-code" onClick={copy} title={en ? 'Copy promo code' : 'Скопировать промокод'}>
       <span className="mono">{code}</span>
-      <span className="promo-code-hint">{copied ? 'скопирован' : 'копировать'}</span>
+      <span className="promo-code-hint">{copied ? (en ? 'copied' : 'скопирован') : (en ? 'copy' : 'копировать')}</span>
     </button>
   );
 }

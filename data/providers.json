@@ -36,9 +36,18 @@
       "Закрывающие документы и договор для юрлиц",
       "Почасовая тарификация, снапшоты и бэкапы из коробки"
     ],
+    "prosEn": [
+      "Data centers in Russia, low latency from Moscow and St. Petersburg",
+      "Proper invoicing and a contract for legal entities",
+      "Hourly billing, snapshots and backups out of the box"
+    ],
     "cons": [
       "Зарубежных локаций мало",
       "Цена выше самых бюджетных российских провайдеров"
+    ],
+    "consEn": [
+      "Few international locations",
+      "Pricier than the most budget Russian providers"
     ],
     "affiliate": {
       "rate": "20% на облако, до 40% на хостинг",
@@ -88,9 +97,18 @@
       "Локации в России и Европе в одном кабинете",
       "Круглосуточная поддержка на русском"
     ],
+    "prosEn": [
+      "Very low starting price",
+      "Locations in Russia and Europe in one account",
+      "24/7 support in Russian"
+    ],
     "cons": [
       "Интерфейс проще, чем у крупных облаков",
       "Ресурсы младших тарифов ограничены"
+    ],
+    "consEn": [
+      "A simpler interface than the big clouds",
+      "Entry-level plans have limited resources"
     ],
     "affiliate": {
       "rate": "30% на VPS и хостинг, выделенные 500 ₽ фикс",
@@ -140,9 +158,18 @@
       "Управляемые базы данных и Kubernetes",
       "Хорошая документация"
     ],
+    "prosEn": [
+      "Deploy apps straight from GitHub",
+      "Managed databases and Kubernetes",
+      "Good documentation"
+    ],
     "cons": [
       "Дороже чистого unmanaged VPS при тех же ресурсах",
       "Меньше контроля над окружением, часть настроек скрыта платформой"
+    ],
+    "consEn": [
+      "Pricier than a plain unmanaged VPS for the same resources",
+      "Less control over the environment, some settings are hidden by the platform"
     ],
     "affiliate": {
       "rate": "по договору",
@@ -191,9 +218,18 @@
       "Есть выделенные серверы и storage-линейка",
       "Гибкий выбор страны под требования проекта"
     ],
+    "prosEn": [
+      "More than forty locations worldwide",
+      "Dedicated servers and a storage line are available",
+      "Flexible choice of country to match project requirements"
+    ],
     "cons": [
       "Российских локаций нет",
       "Поддержка отвечает не мгновенно"
+    ],
+    "consEn": [
+      "No Russian locations",
+      "Support does not respond instantly"
     ],
     "affiliate": {
       "rate": "до 50% с первой покупки, затем 3-20% lifetime",
@@ -240,9 +276,18 @@
       "Местное юрлицо и поддержка в регионе",
       "Низкий пинг по Ближнему Востоку"
     ],
+    "prosEn": [
+      "A real location in the UAE",
+      "A local legal entity and in-region support",
+      "Low latency across the Middle East"
+    ],
     "cons": [
       "Только одна география",
       "Цены выше европейских при тех же ресурсах"
+    ],
+    "consEn": [
+      "A single geography only",
+      "Prices higher than European ones for the same resources"
     ],
     "affiliate": {
       "rate": "10-70% от инвойса",
@@ -288,9 +333,18 @@
       "Есть выделенные серверы",
       "Долгая история на рынке"
     ],
+    "prosEn": [
+      "Strong hardware and network",
+      "Dedicated servers available",
+      "A long track record on the market"
+    ],
     "cons": [
       "Нет российских локаций",
       "Интерфейс рассчитан на технического пользователя"
+    ],
+    "consEn": [
+      "No Russian locations",
+      "The interface is aimed at a technical user"
     ],
     "affiliate": {
       "rate": "30% recurring",
@@ -336,9 +390,18 @@
       "Простая панель",
       "Несколько регионов на выбор"
     ],
+    "prosEn": [
+      "Low entry price",
+      "A simple panel",
+      "Several regions to choose from"
+    ],
     "cons": [
       "Скромные ресурсы на младших тарифах",
       "Нет российских локаций"
+    ],
+    "consEn": [
+      "Modest resources on entry-level plans",
+      "No Russian locations"
     ],
     "affiliate": {
       "rate": "25% на VPS",
@@ -386,9 +449,18 @@
       "Управляемые опции и миграция сайта",
       "Много локаций"
     ],
+    "prosEn": [
+      "NVMe on every plan",
+      "Managed options and site migration",
+      "Many locations"
+    ],
     "cons": [
       "Агрессивная подача цен, обязательно смотреть цену продления",
       "Российских локаций нет"
+    ],
+    "consEn": [
+      "Aggressive price presentation, always check the renewal price",
+      "No Russian locations"
     ],
     "affiliate": {
       "rate": "высокий процент с первой продажи",
@@ -436,9 +508,18 @@
       "Понятные тарифы",
       "Быстрая выдача сервера"
     ],
+    "prosEn": [
+      "Flexible configuration",
+      "Clear plans",
+      "Fast server provisioning"
+    ],
     "cons": [
       "Бренд менее известен",
       "Нет российских локаций"
+    ],
+    "consEn": [
+      "A less well-known brand",
+      "No Russian locations"
     ],
     "affiliate": {
       "rate": "20% lifetime плюс бонусы",
@@ -483,9 +564,18 @@
       "Документы и договор для юрлиц",
       "Известный бренд с долгой историей"
     ],
+    "prosEn": [
+      "Domains, hosting and servers in one account",
+      "Invoicing and a contract for legal entities",
+      "A well-known brand with a long history"
+    ],
     "cons": [
       "Цены выше нишевых провайдеров",
       "Интерфейс перегружен"
+    ],
+    "consEn": [
+      "Prices higher than niche providers",
+      "A cluttered interface"
     ],
     "affiliate": {
       "rate": "40% хостинг, 15% облако, 3,5% домены",
@@ -530,9 +620,17 @@
       "Русскоязычная поддержка при зарубежных локациях",
       "Широкая линейка услуг"
     ],
+    "prosEn": [
+      "Russian-speaking support with international locations",
+      "A broad range of services"
+    ],
     "cons": [
       "Расчёты в валюте, курсовой риск",
       "Российских локаций нет"
+    ],
+    "consEn": [
+      "Billing in foreign currency, exchange-rate risk",
+      "No Russian locations"
     ],
     "affiliate": {
       "rate": "15-25% на VPS",
@@ -580,8 +678,16 @@
       "Низкая цена входа",
       "Несколько стран на выбор"
     ],
+    "prosEn": [
+      "Hourly billing",
+      "Low entry price",
+      "Several countries to choose from"
+    ],
     "cons": [
       "Поддержка только тикетами"
+    ],
+    "consEn": [
+      "Support by tickets only"
     ],
     "affiliate": {
       "rate": "20%, шкала до 50%",
@@ -628,8 +734,16 @@
       "Готовые решения под 1С и трейдинг",
       "Есть GPU"
     ],
+    "prosEn": [
+      "Many data centers",
+      "Ready-made solutions for 1C and trading",
+      "GPU available"
+    ],
     "cons": [
       "Цены выше бюджетного сегмента"
+    ],
+    "consEn": [
+      "Prices above the budget segment"
     ],
     "affiliate": {
       "rate": "15% с ростом до 25%",
@@ -677,8 +791,16 @@
       "Есть GPU и storage-серверы",
       "Локации в РФ, Нидерландах и Казахстане"
     ],
+    "prosEn": [
+      "A long track record on the market",
+      "GPU and storage servers available",
+      "Locations in Russia, the Netherlands and Kazakhstan"
+    ],
     "cons": [
       "Базовая ставка партнёрки низкая"
+    ],
+    "consEn": [
+      "The base affiliate rate is low"
     ],
     "affiliate": {
       "rate": "10% всех расходов реферала",
@@ -725,9 +847,18 @@
       "Гибкий конфигуратор вместо жёсткой тарифной сетки",
       "Есть и зарубежные площадки под проекты на Европу"
     ],
+    "prosEn": [
+      "Its own data center in Moscow",
+      "A flexible configurator instead of a rigid plan grid",
+      "International sites too, for Europe-facing projects"
+    ],
     "cons": [
       "Бренд менее известен, чем у крупных игроков",
       "Цены сверяются, в каталоге их пока нет"
+    ],
+    "consEn": [
+      "A less well-known brand than the big players",
+      "Prices are being verified, not in the catalog yet"
     ],
     "affiliate": {
       "rate": "по программе cloud4box",
