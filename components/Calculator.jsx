@@ -27,7 +27,7 @@ export default function Calculator({ payload, presetTask = null, presetGeo = 'an
   const tt = t(locale).calc;
   const unitGb = en ? 'GB' : 'ГБ';
   const nm = (o) => (en ? o?.nameEn || o?.name : o?.name);
-  const methodologyHref = en ? '/en/methodology' : '/metodologiya';
+  const methodologyHref = en ? '/methodology' : '/ru/metodologiya';
   const BUDGET = en ? { min: 5, max: 125, step: 5, def: 25 } : { min: 200, max: 10000, step: 100, def: 2000 };
 
   const presetTaskObj = payload.tasks.find((t2) => t2.slug === presetTask) || null;

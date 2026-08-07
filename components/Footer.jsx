@@ -12,8 +12,8 @@ export default function Footer({ verifiedAt, hasPromos = false, domain, contactE
   const locale = localeFromPath(pathname);
   const tt = t(locale);
   const f = tt.footer;
-  const home = locale === 'en' ? '/en' : '/';
-  const L = (ru, en) => (locale === 'en' ? en : ru);
+  const home = locale === 'ru' ? '/ru' : '/';
+  const L = (ru, en) => (locale === 'en' ? en.replace(/^\/en/, '') : '/ru' + ru);
   const year = new Date().getUTCFullYear();
 
   return (

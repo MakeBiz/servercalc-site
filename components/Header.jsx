@@ -5,21 +5,21 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import Logo from './Logo';
 import { SITE_NAME } from '@/lib/site';
-import { NAV, navHref, localeFromPath, otherLocale, switchPath, t } from '@/lib/i18n';
+import { NAV, navHref, localeFromPath, switchPath, t } from '@/lib/i18n';
 
 export default function Header({ showPromos = false }) {
   const [open, setOpen] = useState(false);
   const pathname = usePathname() || '/';
   const locale = localeFromPath(pathname);
   const tt = t(locale);
-  const home = locale === 'en' ? '/en' : '/';
+  const home = locale === 'ru' ? '/ru' : '/';
 
   // сравнение по сегментам: иначе /vps подсвечивался бы на /vps-dlya/...
   const isActive = (href) =>
     href === home ? pathname === home : pathname === href || pathname.startsWith(href + '/');
 
-  const other = otherLocale(locale);
-  const switchHref = switchPath(pathname, other);
+  const enHref = locale === 'en' ? pathname : switchPath(pathname, 'en');
+  const ruHref = locale === 'ru' ? pathname : switchPath(pathname, 'ru');
 
   return (
     <header className="header">
@@ -43,15 +43,26 @@ export default function Header({ showPromos = false }) {
               </Link>
             );
           })}
-          <Link
-            href={switchHref}
-            className="lang-switch"
-            hrefLang={other}
-            onClick={() => setOpen(false)}
-            aria-label={tt.langLabel}
-          >
-            {tt.langSwitchTo}
-          </Link>
+          <span className="lang-toggle" role="group" aria-label={tt.langLabel}>
+            <Link
+              href={enHref}
+              className="lang-opt"
+              hrefLang="en"
+              aria-current={locale === 'en' ? 'true' : undefined}
+              onClick={() => setOpen(false)}
+            >
+              EN
+            </Link>
+            <Link
+              href={ruHref}
+              className="lang-opt"
+              hrefLang="ru"
+              aria-current={locale === 'ru' ? 'true' : undefined}
+              onClick={() => setOpen(false)}
+            >
+              RU
+            </Link>
+          </span>
         </nav>
 
         <Link href={`${home === '/' ? '' : home}/#podbor`} className="btn btn-brass btn-sm header-cta">

@@ -37,6 +37,6 @@ The practical takeaway is simple. An SLA should be read not in the promo block b
 
 ## Disclosure
 
-We have an affiliate relationship with AdminVPS: we earn a commission for a service ordered through our link, at no extra cost to you. It does not affect the provider’s position in the matching, [the matching formula](/en/methodology) is published in full
+We have an affiliate relationship with AdminVPS: we earn a commission for a service ordered through our link, at no extra cost to you. It does not affect the provider’s position in the matching, [the matching formula](/methodology) is published in full
 
 This material was not commissioned or paid for by the provider. The company’s figures are taken from its public pages and its CNewsMarket card, the availability measurements from the open review by the hostings.info catalog

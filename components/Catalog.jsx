@@ -18,8 +18,8 @@ export default function Catalog({ rows, providers, geos, requirements, presetGeo
   const shortOf = (r) => (en ? r?.shortEn || r?.short : r?.short);
   const noteOf = (r) => (en ? r?.noteEn || r?.note : r?.note);
   const money = (rub) => fmtPrice(rub, locale);
-  const detailHref = (slug) => (en ? `/en/providers/${slug}` : `/provajdery/${slug}`);
-  const methodologyHref = en ? '/en/methodology' : '/metodologiya';
+  const detailHref = (slug) => (en ? `/providers/${slug}` : `/ru/provajdery/${slug}`);
+  const methodologyHref = en ? '/methodology' : '/ru/metodologiya';
   const P = en ? { min: 5, max: 150, step: 5 } : { min: 200, max: 12000, step: 100 };
 
   const SORTS = [

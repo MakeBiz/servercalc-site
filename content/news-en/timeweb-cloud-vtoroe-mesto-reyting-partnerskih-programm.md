@@ -40,6 +40,6 @@ Finally, an SLA of 99.98 percent is an obligation, not a measurement. It means t
 
 ## Disclosure
 
-We have an affiliate relationship with Timeweb Cloud: if you sign up through our link, we earn a commission, at no extra cost to you. It does not affect the provider’s position in the matching, [the matching formula](/en/methodology) is published in full
+We have an affiliate relationship with Timeweb Cloud: if you sign up through our link, we earn a commission, at no extra cost to you. It does not affect the provider’s position in the matching, [the matching formula](/methodology) is published in full
 
 This material was not commissioned or paid for by the provider. The ranking data is taken from the CNewsMarket publication of February 2, 2026, the other metrics from the information the company publishes about itself

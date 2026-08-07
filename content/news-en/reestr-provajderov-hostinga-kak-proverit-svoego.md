@@ -30,4 +30,4 @@ This is not a reason to give up foreign locations: if a project needs Europe for
 
 Nothing but the right to operate. A registry entry guarantees neither availability, nor disk speed, nor adequate support, nor that the price will not double on renewal. It is market admission, not a mark of quality, and the two should not be confused
 
-You still have to check all the same things: the configuration, the price per resource, the date of the last price check and the renewal terms. Plans with specs and check dates are [in our catalog](/en/catalog), and how we compute the workload fit is described [in the methodology](/en/methodology)
+You still have to check all the same things: the configuration, the price per resource, the date of the last price check and the renewal terms. Plans with specs and check dates are [in our catalog](/catalog), and how we compute the workload fit is described [in the methodology](/methodology)

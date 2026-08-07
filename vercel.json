@@ -5,6 +5,22 @@
   "framework": null,
   "cleanUrls": true,
   "trailingSlash": false,
+  "redirects": [
+    { "source": "/en", "destination": "/", "permanent": true },
+    { "source": "/en/:path*", "destination": "/:path*", "permanent": true },
+    { "source": "/provajdery", "destination": "/ru/provajdery", "permanent": true },
+    { "source": "/provajdery/:path*", "destination": "/ru/provajdery/:path*", "permanent": true },
+    { "source": "/vps-dlya", "destination": "/ru/vps-dlya", "permanent": true },
+    { "source": "/vps-dlya/:path*", "destination": "/ru/vps-dlya/:path*", "permanent": true },
+    { "source": "/vps", "destination": "/ru/vps", "permanent": true },
+    { "source": "/vps/:path*", "destination": "/ru/vps/:path*", "permanent": true },
+    { "source": "/novosti", "destination": "/ru/novosti", "permanent": true },
+    { "source": "/novosti/:path*", "destination": "/ru/novosti/:path*", "permanent": true },
+    { "source": "/akcii", "destination": "/ru/akcii", "permanent": true },
+    { "source": "/metodologiya", "destination": "/ru/metodologiya", "permanent": true },
+    { "source": "/o-proekte", "destination": "/ru/o-proekte", "permanent": true },
+    { "source": "/politika-konfidencialnosti", "destination": "/ru/politika-konfidencialnosti", "permanent": true }
+  ],
   "headers": [
     {
       "source": "/_next/static/(.*)",

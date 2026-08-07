@@ -1,13 +1,17 @@
 import Link from 'next/link';
 import PageHead from '@/components/PageHead';
 import { METRIKA_ID, GA_ID, SITE_NAME } from '@/lib/site';
-import { ruDate } from '@/lib/format';
+import { fmtDate } from '@/lib/format';
+
+const LOCALE = 'en';
 
 export const metadata = {
-  title: 'Использование cookie',
+  title: 'Use of cookies',
   description:
-    'Какие cookie использует сервис, зачем они нужны, сколько живут и как их отключить в браузере',
-  alternates: { canonical: '/cookie' },
+    'Which cookies the service uses, what they are for, how long they live and how to turn them off in your browser',
+  alternates: {
+    canonical: '/cookie',
+  },
 };
 
 const UPDATED = '2026-08-02';
@@ -16,53 +20,53 @@ const COOKIES = [
   {
     name: 'servercalc.cookie.v1',
     who: SITE_NAME,
-    what: 'Запоминает, что вы закрыли уведомление о cookie, чтобы оно не появлялось при каждом визите',
-    life: '1 год',
-    kind: 'Техническая',
+    what: 'Remembers that you closed the cookie notice so it does not appear on every visit',
+    life: '1 year',
+    kind: 'Technical',
   },
   {
     name: '_ym_uid, _ym_d',
-    who: 'Яндекс Метрика',
-    what: 'Обезличенный идентификатор посетителя и дата первого визита. Нужны, чтобы отличать новых читателей от вернувшихся',
-    life: '1 год',
-    kind: 'Аналитическая',
+    who: 'Yandex Metrika',
+    what: 'An anonymized visitor identifier and the date of the first visit. Used to tell new readers from returning ones',
+    life: '1 year',
+    kind: 'Analytics',
   },
   {
     name: '_ym_isad, _ym_visorc',
-    who: 'Яндекс Метрика',
-    what: 'Служебные значения счётчика: наличие блокировщика и запись действий в интерфейсе',
-    life: 'от сессии до 2 суток',
-    kind: 'Аналитическая',
+    who: 'Yandex Metrika',
+    what: 'Service values of the counter: whether a blocker is present and the session-recording state',
+    life: 'session to 2 days',
+    kind: 'Analytics',
   },
   {
     name: '_ga, _ga_WE8E8VWCS7',
     who: 'Google Analytics',
-    what: 'Обезличенный идентификатор посетителя и состояние сессии Google Analytics. Нужны для подсчёта визитов и различения посетителей',
-    life: '2 года',
-    kind: 'Аналитическая',
+    what: 'An anonymized visitor identifier and the Google Analytics session state. Used to count visits and distinguish visitors',
+    life: '2 years',
+    kind: 'Analytics',
   },
 ];
 
-export default function CookiePage() {
+export default function CookiePageEn() {
   return (
     <>
       <PageHead
-        eyebrow="Право"
-        title="Использование cookie"
-        lead="Cookie это небольшие текстовые записи, которые сайт сохраняет в браузере. Здесь перечислено, какие именно записи создаёт сервис и зачем"
-        crumbs={[{ href: '/cookie', label: 'Cookie' }]}
-        badges={<span className="badge badge-brass">редакция от {ruDate(UPDATED)}</span>}
+        locale={LOCALE}
+        eyebrow="Legal"
+        title="Use of cookies"
+        lead="Cookies are small text records a site stores in your browser. This page lists exactly which records the service creates and why"
+        crumbs={[{ href: '/cookie', label: 'Cookies' }]}
+        badges={<span className="badge badge-brass">revision of {fmtDate(UPDATED, LOCALE)}</span>}
       />
 
       <section className="section paper">
         <div className="wrap-narrow">
           <div className="prose">
-            <h2>Зачем они нужны</h2>
+            <h2>What they are for</h2>
             <p>
-              Сервис использует cookie для двух вещей: чтобы не показывать одно и то же уведомление
-              при каждом визите и чтобы понимать, какими страницами читатели пользуются, а какие
-              бесполезны. Мы не используем cookie для рекламного таргетинга и не передаём их
-              рекламным сетям.
+              The service uses cookies for two things: to avoid showing the same notice on every visit
+              and to understand which pages readers use and which are useless. We do not use cookies
+              for ad targeting and do not pass them to ad networks.
             </p>
           </div>
 
@@ -71,11 +75,11 @@ export default function CookiePage() {
               <table className="tbl" style={{ minWidth: 620 }}>
                 <thead>
                   <tr>
-                    <th>Запись</th>
-                    <th>Кто создаёт</th>
-                    <th>Зачем</th>
-                    <th>Срок</th>
-                    <th>Тип</th>
+                    <th>Record</th>
+                    <th>Set by</th>
+                    <th>Purpose</th>
+                    <th>Lifetime</th>
+                    <th>Type</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -96,37 +100,37 @@ export default function CookiePage() {
           </div>
 
           <div className="prose mt-lg">
-            <h2>Cookie партнёров</h2>
+            <h2>Partner cookies</h2>
             <p>
-              При переходе по партнёрской ссылке к провайдеру его сайт может установить собственные
-              cookie, чтобы связать заказ с нашим переходом. Эти записи создаются уже на стороне
-              провайдера и подчиняются его правилам. Сам факт партнёрских отношений раскрыт рядом с
-              каждой такой ссылкой и в обзоре соответствующего провайдера.
+              When you follow an affiliate link to a provider, its site may set its own cookies to tie
+              an order to our click. Those records are created on the provider’s side and are subject
+              to its rules. The affiliate relationship itself is disclosed next to every such link and
+              in the review of the provider in question.
             </p>
 
-            <h2>Как отключить</h2>
+            <h2>How to turn them off</h2>
             <p>
-              Все современные браузеры позволяют запретить cookie полностью или для отдельных сайтов
-              в разделе настроек, посвящённом конфиденциальности и данным сайтов. Уже сохранённые
-              записи можно удалить там же.
+              Every modern browser lets you block cookies entirely or for specific sites in the
+              settings section devoted to privacy and site data. Records already stored can be deleted
+              there too.
             </p>
             <p>
-              Отдельно можно отказаться от сбора данных Яндекс Метрикой с помощью официального
-              дополнения Яндекса, а от сбора данных Google Analytics с помощью официального
-              дополнения Google для браузера или любого блокировщика.
+              Data collection by Yandex Metrika can be declined separately with the official browser
+              add-on provided by Yandex; Google Analytics collection can be declined with the official
+              opt-out add-on provided by Google, or with any blocker.
             </p>
             <p>
-              При отключении cookie сервис продолжит работать: подбор, каталог и материалы не
-              требуют их для отображения. Единственное неудобство это повторное появление
-              уведомления о cookie при каждом визите.
+              With cookies disabled the service keeps working: the matching, the catalog and the
+              content do not need them to render. The only inconvenience is that the cookie notice
+              reappears on every visit.
             </p>
 
-            <h2>Счётчики</h2>
+            <h2>Counters</h2>
             <p>
-              Номер счётчика Яндекс Метрики, установленного на сервисе: {METRIKA_ID}
-              {GA_ID ? `, идентификатор Google Analytics: ${GA_ID}` : ''}. Подробности об обработке
-              данных описаны в{' '}
-              <Link href="/politika-konfidencialnosti">политике конфиденциальности</Link>.
+              The Yandex Metrika counter number on the service is {METRIKA_ID}
+              {GA_ID ? `, and the Google Analytics measurement ID is ${GA_ID}` : ''}. Details of the
+              data processing are described in the{' '}
+              <Link href="/privacy">privacy policy</Link>.
             </p>
           </div>
         </div>

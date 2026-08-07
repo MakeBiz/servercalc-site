@@ -1,7 +1,6 @@
 // Шрифты подключаются локально пакетами fontsource, а не с серверов Google.
 // Так у сайта нет внешних запросов при загрузке: это и скорость, и отсутствие
 // зависимости от доступности fonts.googleapis.com для читателей из России
-// Шрифты подключаются локально пакетами fontsource, без запросов к Google.
 // Дизайн-система Claude Design: Manrope для заголовков, Inter для текста,
 // JetBrains Mono для цифр, дат, кодов и надзаголовков
 import '@fontsource-variable/manrope';
@@ -18,20 +17,23 @@ import { SITE, SITE_URL, SITE_NAME } from '@/lib/site';
 import { STATS } from '@/lib/data';
 import { HAS_PROMOS } from '@/lib/promos';
 
+// Английский — основной язык, живёт в корне. Русский под /ru получает свои
+// метаданные из app/ru/layout.js. Тег <html lang> ставится здесь как en и
+// правится на клиенте (HtmlLang) для страниц /ru
 export const metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: `${SITE_NAME}, ${SITE.tagline}`,
+    default: `${SITE_NAME} — pick a VPS by workload`,
     template: `%s — ${SITE_NAME}`,
   },
   description:
-    'Справочный каталог виртуальных серверов: подбор под задачу, сравнение тарифов по цене за ресурс и дата проверки цены у каждого тарифа',
+    'Reference catalog of virtual servers: match a VPS by workload, resources and location, compare plans by price per resource, with a verification date on every price',
   applicationName: SITE_NAME,
   robots: { index: true, follow: true },
   alternates: { canonical: '/' },
   openGraph: {
     type: 'website',
-    locale: 'ru_RU',
+    locale: 'en_US',
     siteName: SITE_NAME,
     url: SITE_URL,
   },
@@ -46,7 +48,7 @@ export const viewport = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="ru">
+    <html lang="en">
       <body>
         <HtmlLang />
         <DemoStrip />

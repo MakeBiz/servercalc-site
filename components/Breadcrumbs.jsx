@@ -4,7 +4,7 @@ import { absUrl } from '@/lib/site';
 
 /** items: [{ href, label }, ...], последний элемент отображается без ссылки */
 export default function Breadcrumbs({ items = [], locale = 'ru' }) {
-  const home = locale === 'en' ? { href: '/en', label: 'Home' } : { href: '/', label: 'Главная' };
+  const home = locale === 'ru' ? { href: '/ru', label: 'Главная' } : { href: '/', label: 'Home' };
   const all = [home, ...items];
 
   return (

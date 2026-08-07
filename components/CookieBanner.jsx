@@ -13,7 +13,7 @@ export default function CookieBanner() {
   const pathname = usePathname() || '/';
   const locale = localeFromPath(pathname);
   const c = t(locale).cookie;
-  const L = (ru, en) => (locale === 'en' ? en : ru);
+  const L = (ru, en) => (locale === 'en' ? en.replace(/^\/en/, '') : '/ru' + ru);
 
   useEffect(() => {
     try {

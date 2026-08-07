@@ -14,14 +14,19 @@
 const BASE = process.argv[2] || 'http://localhost:3000';
 
 const PAGES = [
-  '/', '/catalog', '/provajdery', '/vps-dlya', '/vps', '/novosti', '/akcii',
-  '/metodologiya', '/o-proekte',
-  '/politika-konfidencialnosti', '/cookie',
-  '/provajdery/timeweb', '/provajdery/ultahost', '/provajdery/regru', '/provajdery/vdsina',
-  '/vps-dlya/1c-bitrix', '/vps-dlya/n8n', '/vps/rossiya', '/vps/evropa',
-  '/novosti/nvme-protiv-ssd-kogda-raznica-zametna',
-  '/novosti/timeweb-cloud-vtoroe-mesto-reyting-partnerskih-programm',
-  '/novosti/adminvps-desyat-let-i-tridcat-tysyach-klientov',
+  // Английский — основной, в корне
+  '/', '/catalog', '/providers', '/vps-for', '/vps-in', '/news', '/deals',
+  '/methodology', '/about', '/privacy', '/cookie',
+  '/providers/timeweb', '/providers/ultahost', '/providers/regru', '/providers/vdsina',
+  '/vps-for/1c-bitrix', '/vps-for/n8n', '/vps-in/rossiya', '/vps-in/evropa',
+  '/news/nvme-protiv-ssd-kogda-raznica-zametna',
+  // Русский — под /ru
+  '/ru', '/ru/catalog', '/ru/provajdery', '/ru/vps-dlya', '/ru/vps', '/ru/novosti', '/ru/akcii',
+  '/ru/metodologiya', '/ru/o-proekte', '/ru/politika-konfidencialnosti', '/ru/cookie',
+  '/ru/provajdery/timeweb', '/ru/provajdery/ultahost', '/ru/provajdery/regru', '/ru/provajdery/vdsina',
+  '/ru/vps-dlya/1c-bitrix', '/ru/vps/rossiya',
+  '/ru/novosti/timeweb-cloud-vtoroe-mesto-reyting-partnerskih-programm',
+  '/ru/novosti/adminvps-desyat-let-i-tridcat-tysyach-klientov',
 ];
 
 const FORBIDDEN = [
@@ -71,7 +76,7 @@ if (errors === 0) console.log('  чисто');
 // 4. партнёрские ссылки
 console.log('\n3. Партнёрские ссылки и метки');
 const ULTA = /https:\/\/ultahost\.com\/\?[^"']*#MakeBiz/;
-const ultaPage = pages.get('/provajdery/ultahost') || '';
+const ultaPage = pages.get('/providers/ultahost') || '';
 if (ULTA.test(ultaPage)) {
   console.log('  UltaHost: метка стоит до якоря, реферальный идентификатор цел');
 } else if (/ultahost\.com\/#MakeBiz\?/.test(ultaPage)) {
@@ -98,14 +103,14 @@ console.log(`  разрезы utm_campaign: ${[...campaigns].join(', ') || 'не
 // 5. подтверждённые партнёрки обязаны получать метку.
 // VDSina активирована 7 августа (реф-ссылка partner=...), раньше была контролем «без метки».
 // Сейчас все провайдеры в базе партнёрские, отдельного непартнёрского контроля нет
-const vdsina = pages.get('/provajdery/vdsina') || '';
+const vdsina = pages.get('/providers/vdsina') || '';
 if (/vdsina\.ru[^"']*utm_source=servercalc/.test(vdsina)) {
   console.log('  VDSina: партнёрская ссылка с меткой на месте');
 } else {
   fail('VDSina: партнёрка подтверждена, а метки на ссылке нет');
 }
 // и обратная проверка: у подтверждённой партнёрки метка обязана быть
-const regru = pages.get('/provajdery/regru') || '';
+const regru = pages.get('/providers/regru') || '';
 if (/reg\.ru[^"']*utm_source=servercalc/.test(regru)) {
   console.log('  Reg.ru: партнёрская ссылка с меткой на месте');
 } else {
@@ -153,8 +158,10 @@ if (isDemo) {
   if (demoWords) fail(`в боевом режиме на ${demoWords} страницах осталось слово «демонстрационные»`);
   else console.log('  упоминаний демо-данных в текстах не осталось');
 }
-if ((pages.get('/catalog') || '').includes('Проверено')) console.log('  в каталоге есть колонка с датой проверки');
-else fail('в каталоге нет колонки с датой проверки');
+if ((pages.get('/ru/catalog') || '').includes('Проверено')) console.log('  в русском каталоге есть колонка с датой проверки');
+else fail('в русском каталоге нет колонки с датой проверки');
+if ((pages.get('/catalog') || '').includes('Verified')) console.log('  в английском каталоге есть колонка с датой проверки');
+else fail('в английском каталоге нет колонки Verified');
 
 // 9. битые внутренние ссылки
 // Проверка появилась после удаления раздела «Как мы зарабатываем»: страницу снесли,

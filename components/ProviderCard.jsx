@@ -13,7 +13,7 @@ export default function ProviderCard({ provider, minPrice, campaign, geoLabel, l
   const en = locale === 'en';
   const tt = t(locale).card;
   const initials = provider.name.replace(/[^A-Za-zА-Яа-я]/g, '').slice(0, 2).toUpperCase();
-  const detail = en ? `/en/providers/${provider.slug}` : `/provajdery/${provider.slug}`;
+  const detail = en ? `/providers/${provider.slug}` : `/ru/provajdery/${provider.slug}`;
   const description = (en ? provider.descriptionEn || provider.description : provider.description) || '';
 
   return (
