@@ -43,6 +43,9 @@ export default function Header({ showPromos = false }) {
               </Link>
             );
           })}
+        </nav>
+
+        <div className="header-right">
           <span className="lang-toggle" role="group" aria-label={tt.langLabel}>
             <Link
               href={enHref}
@@ -63,11 +66,10 @@ export default function Header({ showPromos = false }) {
               RU
             </Link>
           </span>
-        </nav>
-
-        <Link href={`${home === '/' ? '' : home}/#podbor`} className="btn btn-brass btn-sm header-cta">
-          {tt.brandCta}
-        </Link>
+          <Link href={`${home === '/' ? '' : home}/#podbor`} className="btn btn-brass btn-sm header-cta">
+            {tt.brandCta}
+          </Link>
+        </div>
 
         <button
           className="burger"

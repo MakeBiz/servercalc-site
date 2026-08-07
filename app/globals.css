@@ -294,13 +294,13 @@ p:last-child { margin-bottom: 0; }
   display: flex;
   align-items: center;
   gap: 4px;
-  margin-left: auto;
 }
 .nav a {
   padding: 8px 13px;
   border-radius: var(--r-sm);
   font-size: 0.9rem;
   font-weight: 500;
+  white-space: nowrap;
   color: var(--on-ink-dim);
   text-decoration: none;
   transition: color 0.15s ease, background 0.15s ease;
@@ -334,11 +334,21 @@ p:last-child { margin-bottom: 0; }
 .lang-toggle .lang-opt[aria-current="true"] { background: var(--brass); color: var(--ink-900); }
 .lang-toggle .lang-opt[aria-current="true"]:hover { background: var(--brass-bright); color: var(--ink-900); }
 
-.header-cta { margin-left: 10px; }
+/* Правый кластер шапки: переключатель языка + кнопка подбора. Прижат вправо,
+   ширина кнопки фиксирована, чтобы при смене языка ничего не прыгало */
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-left: auto;
+}
+.header-cta {
+  white-space: nowrap;
+  min-width: 176px;
+}
 
 .burger {
   display: none;
-  margin-left: auto;
   background: transparent;
   border: 1px solid var(--ink-line-2);
   border-radius: var(--r-sm);
@@ -350,7 +360,7 @@ p:last-child { margin-bottom: 0; }
   justify-content: center;
 }
 
-@media (max-width: 940px) {
+@media (max-width: 1160px) {
   .nav { display: none; }
   .burger { display: inline-flex; }
   .nav-open {
