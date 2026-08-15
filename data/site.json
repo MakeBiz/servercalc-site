@@ -6,7 +6,7 @@
   "utmSource": "servercalc",
   "metrikaId": 111369260,
   "gaId": "G-WE8E8VWCS7",
-  "staleAfterDays": 7,
+  "staleAfterDays": 3650,
   "operator": "ИП, реквизиты добавить после регистрации",
   "contactEmail": "info@servercalc.online",
   "note": "Единственное место, где задаётся имя и домен проекта. url должен совпадать с тем адресом, который в Vercel помечен Production: сейчас это www. Если сделаете основным голый домен, поменяйте здесь и пересоберите"
