@@ -7,6 +7,10 @@ import GoogleAnalytics from './GoogleAnalytics';
  * Цели, которые отправляются из интерфейса, перечислены в lib/metrika.js
  */
 export default function Metrika() {
+  // Если счётчик Метрики не задан (например, serverselection.online — только GA4),
+  // не подключаем ни Метрику, ни первопартийный счётчик — оставляем только Google Analytics.
+  if (!METRIKA_ID) return <GoogleAnalytics />;
+
   const code = `
 (function(m,e,t,r,i,k,a){
     m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
