@@ -18,7 +18,13 @@ export default function Header({ showPromos = false }) {
   const isActive = (href) =>
     href === home ? pathname === home : pathname === href || pathname.startsWith(href + '/');
 
-  const enHref = locale === 'en' ? pathname : switchPath(pathname, 'en');
+  // Страницы, которых нет в английской версии (Россия и провайдеры, скрытые в EN).
+  // Для них переключатель ведёт на ближайший английский раздел, а не на 404
+  const EN_MISSING = new Set(['/vps-in/rossiya', '/providers/timeweb', '/providers/vpshouse']);
+  const enComputed = locale === 'en' ? pathname : switchPath(pathname, 'en');
+  const enHref = EN_MISSING.has(enComputed)
+    ? (enComputed.startsWith('/providers/') ? '/providers' : '/vps-in')
+    : enComputed;
   const ruHref = locale === 'ru' ? pathname : switchPath(pathname, 'ru');
 
   return (

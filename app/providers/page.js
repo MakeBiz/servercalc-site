@@ -1,7 +1,7 @@
 import PageHead from '@/components/PageHead';
 import ProviderCard from '@/components/ProviderCard';
 import JsonLd from '@/components/JsonLd';
-import { PROVIDERS, STATS, minPriceOf, plansOf } from '@/lib/data';
+import { PROVIDERS, STATS, minPriceOf, plansOf, providersFor } from '@/lib/data';
 import { CAMPAIGN } from '@/lib/utm';
 import { fmtDate } from '@/lib/format';
 import { absUrl } from '@/lib/site';
@@ -18,8 +18,8 @@ export const metadata = {
 };
 
 export default function ProvidersPageEn() {
-  const ru = PROVIDERS.filter((p) => p.country === 'RU');
-  const intl = PROVIDERS.filter((p) => p.country !== 'RU');
+  const ru = providersFor('en').filter((p) => p.country === 'RU');
+  const intl = providersFor('en').filter((p) => p.country !== 'RU');
   const sortByPrice = (a, b) => (minPriceOf(a.slug) ?? Infinity) - (minPriceOf(b.slug) ?? Infinity);
 
   return (
@@ -29,8 +29,8 @@ export default function ProvidersPageEn() {
           '@context': 'https://schema.org',
           '@type': 'ItemList',
           name: 'Virtual server providers',
-          numberOfItems: PROVIDERS.length,
-          itemListElement: PROVIDERS.map((p, i) => ({
+          numberOfItems: providersFor('en').length,
+          itemListElement: providersFor('en').map((p, i) => ({
             '@type': 'ListItem',
             position: i + 1,
             name: p.name,
@@ -93,7 +93,7 @@ export default function ProvidersPageEn() {
             <strong>How this list is formed.</strong> A provider makes the catalog if it has a public
             price list we can verify and a line of virtual servers. Position in the list depends on
             the lowest price in the base, not on the size of the commission. The base holds{' '}
-            {PROVIDERS.reduce((n, p) => n + plansOf(p.slug).length, 0)} verified plans in total
+            {providersFor('en').reduce((n, p) => n + plansOf(p.slug).length, 0)} verified plans in total
           </div>
         </div>
       </section>

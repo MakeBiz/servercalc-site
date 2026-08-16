@@ -46,9 +46,19 @@ export default function Footer({ verifiedAt, hasPromos = false, domain, contactE
             <h4>{f.colProviders}</h4>
             <ul>
               <li><Link href={L('/provajdery', '/en/providers')}>{f.allProviders}</Link></li>
-              <li><Link href={L('/provajdery/timeweb', '/en/providers/timeweb')}>Timeweb Cloud</Link></li>
-              <li><Link href={L('/provajdery/adminvps', '/en/providers/adminvps')}>AdminVPS</Link></li>
-              <li><Link href={L('/provajdery/hostman', '/en/providers/hostman')}>Hostman</Link></li>
+              {locale === 'en' ? (
+                <>
+                  <li><Link href="/providers/ishosting">is*hosting</Link></li>
+                  <li><Link href="/providers/vpsorg">VPS.org</Link></li>
+                  <li><Link href="/providers/hostman">Hostman</Link></li>
+                </>
+              ) : (
+                <>
+                  <li><Link href="/ru/provajdery/timeweb">Timeweb Cloud</Link></li>
+                  <li><Link href="/ru/provajdery/adminvps">AdminVPS</Link></li>
+                  <li><Link href="/ru/provajdery/hostman">Hostman</Link></li>
+                </>
+              )}
             </ul>
           </div>
 

@@ -2,7 +2,7 @@ import Link from 'next/link';
 import PageHead from '@/components/PageHead';
 import Catalog from '@/components/Catalog';
 import JsonLd from '@/components/JsonLd';
-import { catalogRows, PROVIDERS, GEO_PAGES, REQUIREMENTS, STATS, VISIBLE_PLANS, META } from '@/lib/data';
+import { catalogRows, PROVIDERS, GEO_PAGES, REQUIREMENTS, STATS, VISIBLE_PLANS, META, providersFor, geoPagesFor, visiblePlansFor } from '@/lib/data';
 import { fmtPrice, USD_RATE } from '@/lib/format';
 import { fmtDate } from '@/lib/format';
 import { absUrl } from '@/lib/site';
@@ -19,8 +19,8 @@ export const metadata = {
 };
 
 export default function CatalogPageEn() {
-  const rows = catalogRows();
-  const providers = PROVIDERS.map((p) => ({
+  const rows = catalogRows('en');
+  const providers = providersFor('en').map((p) => ({
     slug: p.slug,
     name: p.name,
     affiliateStatus: p.affiliateStatus,
@@ -29,7 +29,7 @@ export default function CatalogPageEn() {
     site: p.site,
   }));
 
-  const cheapest = [...VISIBLE_PLANS].sort((a, b) => a.priceRub - b.priceRub)[0];
+  const cheapest = [...visiblePlansFor('en')].sort((a, b) => a.priceRub - b.priceRub)[0];
 
   return (
     <>
@@ -75,7 +75,7 @@ export default function CatalogPageEn() {
 
       <section className="section paper">
         <div className="wrap">
-          <Catalog rows={rows} providers={providers} geos={GEO_PAGES} requirements={REQUIREMENTS} locale={LOCALE} />
+          <Catalog rows={rows} providers={providers} geos={geoPagesFor('en')} requirements={REQUIREMENTS} locale={LOCALE} />
 
           <p className="faint mt">{META.rateNoteEn || META.rateNote}</p>
 

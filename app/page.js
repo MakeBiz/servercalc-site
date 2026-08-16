@@ -3,7 +3,7 @@ import Calculator from '@/components/Calculator';
 import ProviderCard from '@/components/ProviderCard';
 import TaskIcon from '@/components/TaskIcon';
 import JsonLd from '@/components/JsonLd';
-import { calculatorPayload, TASKS, GEO_PAGES, PROVIDERS, STATS, minPriceOf } from '@/lib/data';
+import { calculatorPayload, TASKS, GEO_PAGES, PROVIDERS, STATS, minPriceOf, geoPagesFor, providersFor } from '@/lib/data';
 import { fmtNum, fmtDate } from '@/lib/format';
 import { CAMPAIGN } from '@/lib/utm';
 import { SITE_NAME, SITE_URL } from '@/lib/site';
@@ -39,8 +39,8 @@ const FAQ = [
 ];
 
 export default function HomePageEn() {
-  const payload = calculatorPayload();
-  const providers = [...PROVIDERS].sort((a, b) => {
+  const payload = calculatorPayload('en');
+  const providers = [...providersFor('en')].sort((a, b) => {
     const pa = minPriceOf(a.slug) ?? Infinity;
     const pb = minPriceOf(b.slug) ?? Infinity;
     return pa - pb;
@@ -190,7 +190,7 @@ export default function HomePageEn() {
           </div>
           <h2>Where to host the server</h2>
           <div className="cards cards-4 mt">
-            {GEO_PAGES.map((geo) => (
+            {geoPagesFor('en').map((geo) => (
               <Link key={geo.slug} href={`/vps-in/${geo.slug}`} className="card">
                 <h3 style={{ fontSize: '1.05rem' }}>{geo.nameEn}</h3>
                 <p className="faint" style={{ margin: 0 }}>{geo.noteEn}</p>

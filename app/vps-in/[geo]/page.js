@@ -4,7 +4,7 @@ import PageHead from '@/components/PageHead';
 import Calculator from '@/components/Calculator';
 import ProviderCard from '@/components/ProviderCard';
 import JsonLd from '@/components/JsonLd';
-import { GEO_PAGES, getGeo, providersForGeo, plansForGeo, minPriceOf, calculatorPayload, STATS } from '@/lib/data';
+import { GEO_PAGES, getGeo, providersForGeo, plansForGeo, minPriceOf, calculatorPayload, STATS, geoPagesFor } from '@/lib/data';
 import { geoContentEn } from '@/lib/geo-content-en';
 import { CAMPAIGN } from '@/lib/utm';
 import { fmtPrice, fmtDate } from '@/lib/format';
@@ -12,7 +12,7 @@ import { fmtPrice, fmtDate } from '@/lib/format';
 const LOCALE = 'en';
 
 export function generateStaticParams() {
-  return GEO_PAGES.map((g) => ({ geo: g.slug }));
+  return geoPagesFor('en').map((g) => ({ geo: g.slug }));
 }
 
 export async function generateMetadata({ params }) {
@@ -34,9 +34,9 @@ export default async function GeoPageEn({ params }) {
   if (!geo) notFound();
 
   const content = geoContentEn(slug);
-  const providers = providersForGeo(geo.code);
-  const plans = plansForGeo(geo.code);
-  const payload = calculatorPayload();
+  const providers = providersForGeo(geo.code, 'en');
+  const plans = plansForGeo(geo.code, 'en');
+  const payload = calculatorPayload('en');
   const cheapest = plans[0];
   const name = geo.nameEn || geo.name;
 
@@ -232,7 +232,7 @@ export default async function GeoPageEn({ params }) {
             <span className="label">Other locations</span>
           </div>
           <div className="chips">
-            {GEO_PAGES.filter((g) => g.slug !== slug).map((g) => (
+            {geoPagesFor('en').filter((g) => g.slug !== slug).map((g) => (
               <Link key={g.slug} href={`/vps-in/${g.slug}`} className="chip chip-light">
                 {g.nameEn || g.name}
               </Link>

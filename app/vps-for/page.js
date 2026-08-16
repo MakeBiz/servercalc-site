@@ -2,7 +2,7 @@ import Link from 'next/link';
 import PageHead from '@/components/PageHead';
 import TaskIcon from '@/components/TaskIcon';
 import JsonLd from '@/components/JsonLd';
-import { TASKS, providersForTask, VISIBLE_PLANS } from '@/lib/data';
+import { TASKS, providersForTask, VISIBLE_PLANS, visiblePlansFor } from '@/lib/data';
 import { taskContentEn } from '@/lib/task-content-en';
 import { fmtPrice } from '@/lib/format';
 import { absUrl } from '@/lib/site';
@@ -54,8 +54,8 @@ export default function TasksPageEn() {
         <div className="wrap">
           <div className="cards cards-2">
             {TASKS.map((task) => {
-              const providers = providersForTask(task.slug);
-              const suited = VISIBLE_PLANS.filter(
+              const providers = providersForTask(task.slug, 'en');
+              const suited = visiblePlansFor('en').filter(
                 (p) => p.ram >= task.ram && p.cpu >= task.cpu && providers.some((x) => x.slug === p.providerSlug)
               ).sort((a, b) => a.priceRub - b.priceRub);
               const content = taskContentEn(task.slug);

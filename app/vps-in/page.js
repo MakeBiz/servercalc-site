@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import PageHead from '@/components/PageHead';
 import JsonLd from '@/components/JsonLd';
-import { GEO_PAGES, providersForGeo, plansForGeo } from '@/lib/data';
+import { GEO_PAGES, providersForGeo, plansForGeo, geoPagesFor } from '@/lib/data';
 import { geoContentEn } from '@/lib/geo-content-en';
 import { fmtPrice } from '@/lib/format';
 import { absUrl } from '@/lib/site';
@@ -25,8 +25,8 @@ export default function GeosPageEn() {
           '@context': 'https://schema.org',
           '@type': 'ItemList',
           name: 'VPS hosting locations',
-          numberOfItems: GEO_PAGES.length,
-          itemListElement: GEO_PAGES.map((g, i) => ({
+          numberOfItems: geoPagesFor('en').length,
+          itemListElement: geoPagesFor('en').map((g, i) => ({
             '@type': 'ListItem',
             position: i + 1,
             name: g.h1En || g.h1,
@@ -41,15 +41,15 @@ export default function GeosPageEn() {
         title="Where to host the server"
         lead="Location affects three things: latency to your audience, the price for the same resources, and which data you are allowed to keep there. Every page covers all three"
         crumbs={[{ href: '/vps-in', label: 'Locations' }]}
-        badges={<span className="badge badge-brass">{GEO_PAGES.length} locations</span>}
+        badges={<span className="badge badge-brass">{geoPagesFor('en').length} locations</span>}
       />
 
       <section className="section paper">
         <div className="wrap">
           <div className="cards cards-2">
-            {GEO_PAGES.map((geo) => {
-              const plans = plansForGeo(geo.code);
-              const providers = providersForGeo(geo.code);
+            {geoPagesFor('en').map((geo) => {
+              const plans = plansForGeo(geo.code, 'en');
+              const providers = providersForGeo(geo.code, 'en');
               const content = geoContentEn(geo.slug);
               return (
                 <Link key={geo.slug} href={`/vps-in/${geo.slug}`} className="card">

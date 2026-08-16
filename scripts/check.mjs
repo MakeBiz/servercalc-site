@@ -17,8 +17,8 @@ const PAGES = [
   // Английский — основной, в корне
   '/', '/catalog', '/providers', '/vps-for', '/vps-in', '/news', '/deals',
   '/methodology', '/about', '/privacy', '/cookie',
-  '/providers/timeweb', '/providers/ultahost', '/providers/regru', '/providers/vdsina',
-  '/vps-for/1c-bitrix', '/vps-for/n8n', '/vps-in/rossiya', '/vps-in/evropa',
+  '/providers/ultahost', '/providers/regru', '/providers/vdsina',
+  '/vps-for/1c-bitrix', '/vps-for/n8n', '/vps-in/evropa',
   '/news/nvme-protiv-ssd-kogda-raznica-zametna',
   // Русский — под /ru
   '/ru', '/ru/catalog', '/ru/provajdery', '/ru/vps-dlya', '/ru/vps', '/ru/novosti', '/ru/akcii',

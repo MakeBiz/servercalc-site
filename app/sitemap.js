@@ -47,6 +47,12 @@ export default function sitemap() {
     ];
   };
 
+  // Только русская запись, без английской альтернативы: для России и провайдеров,
+  // скрытых в английской версии
+  const ruOnly = (ruPath, opts) => [
+    { url: absUrl(ruPath), ...opts, alternates: { languages: { ru: absUrl(ruPath), 'x-default': absUrl(ruPath) } } },
+  ];
+
   const core = [
     ...pair('/', '/ru', { priority: 1, changeFrequency: 'daily', lastModified: updated }),
     ...pair('/catalog', '/ru/catalog', { priority: 0.9, changeFrequency: 'daily', lastModified: updated }),
@@ -72,19 +78,23 @@ export default function sitemap() {
   );
 
   const geos = GEO_PAGES.flatMap((g) =>
-    pair(`/vps-in/${g.slug}`, `/ru/vps/${g.slug}`, {
-      lastModified: updated,
-      changeFrequency: 'weekly',
-      priority: 0.85,
-    })
+    g.code === 'ru'
+      ? ruOnly(`/ru/vps/${g.slug}`, { lastModified: updated, changeFrequency: 'weekly', priority: 0.85 })
+      : pair(`/vps-in/${g.slug}`, `/ru/vps/${g.slug}`, {
+          lastModified: updated,
+          changeFrequency: 'weekly',
+          priority: 0.85,
+        })
   );
 
   const providers = PROVIDERS.flatMap((p) =>
-    pair(`/providers/${p.slug}`, `/ru/provajdery/${p.slug}`, {
-      lastModified: updated,
-      changeFrequency: 'weekly',
-      priority: 0.7,
-    })
+    p.enHidden
+      ? ruOnly(`/ru/provajdery/${p.slug}`, { lastModified: updated, changeFrequency: 'weekly', priority: 0.7 })
+      : pair(`/providers/${p.slug}`, `/ru/provajdery/${p.slug}`, {
+          lastModified: updated,
+          changeFrequency: 'weekly',
+          priority: 0.7,
+        })
   );
 
   const postUrls = posts.flatMap((p) =>

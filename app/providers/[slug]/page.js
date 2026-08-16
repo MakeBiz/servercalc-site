@@ -7,6 +7,7 @@ import Freshness from '@/components/Freshness';
 import TaskIcon from '@/components/TaskIcon';
 import {
   PROVIDERS,
+  providersFor,
   getProvider,
   plansOf,
   allPlansOf,
@@ -24,7 +25,7 @@ import { absUrl } from '@/lib/site';
 const LOCALE = 'en';
 
 export function generateStaticParams() {
-  return PROVIDERS.map((p) => ({ slug: p.slug }));
+  return providersFor('en').map((p) => ({ slug: p.slug }));
 }
 
 export async function generateMetadata({ params }) {

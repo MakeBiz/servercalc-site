@@ -158,8 +158,7 @@
       "h1": "VPS в США",
       "h1En": "VPS in the USA",
       "note": "Площадки в США: имеет смысл, когда аудитория или сервисы находятся в Америке",
-      "noteEn": "Locations in the USA: useful when your audience or services are in America",
-      "page": false
+      "noteEn": "Locations in the USA: useful when your audience or services are in America"
     },
     {
       "slug": "kazahstan",
@@ -169,8 +168,17 @@
       "h1": "VPS в Казахстане",
       "h1En": "VPS in Kazakhstan",
       "note": "Площадки в Казахстане",
-      "noteEn": "Locations in Kazakhstan",
-      "page": false
+      "noteEn": "Locations in Kazakhstan"
+    },
+    {
+      "slug": "aziya",
+      "code": "asia",
+      "name": "Азия",
+      "nameEn": "Asia",
+      "h1": "VPS в Азии",
+      "h1En": "VPS in Asia",
+      "note": "Сингапур, Гонконг, Япония, Турция: низкий пинг для аудитории в Азии",
+      "noteEn": "Singapore, Hong Kong, Japan, Turkey: low latency for an Asian audience"
     }
   ],
   "meta": {

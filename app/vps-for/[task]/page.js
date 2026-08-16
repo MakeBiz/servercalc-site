@@ -5,7 +5,7 @@ import Calculator from '@/components/Calculator';
 import ProviderCard from '@/components/ProviderCard';
 import JsonLd from '@/components/JsonLd';
 import TaskIcon from '@/components/TaskIcon';
-import { TASKS, getTask, providersForTask, minPriceOf, calculatorPayload, VISIBLE_PLANS, STATS } from '@/lib/data';
+import { TASKS, getTask, providersForTask, minPriceOf, calculatorPayload, VISIBLE_PLANS, STATS, visiblePlansFor } from '@/lib/data';
 import { taskContentEn } from '@/lib/task-content-en';
 import { postsForTask, rubricName } from '@/lib/news';
 import { CAMPAIGN } from '@/lib/utm';
@@ -36,10 +36,10 @@ export default async function TaskPageEn({ params }) {
   if (!task) notFound();
 
   const content = taskContentEn(slug);
-  const providers = providersForTask(slug);
+  const providers = providersForTask(slug, 'en');
   const related = postsForTask(slug, LOCALE);
-  const payload = calculatorPayload();
-  const suited = VISIBLE_PLANS.filter(
+  const payload = calculatorPayload('en');
+  const suited = visiblePlansFor('en').filter(
     (p) => p.ram >= task.ram && p.cpu >= task.cpu && providers.some((x) => x.slug === p.providerSlug)
   ).sort((a, b) => a.priceRub - b.priceRub);
   const cheapest = suited[0];
