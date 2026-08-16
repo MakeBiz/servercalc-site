@@ -1,17 +1,18 @@
 import Script from 'next/script';
-import { METRIKA_ID } from '@/lib/site';
+import { METRIKA_ID, SITE_KEY } from '@/lib/site';
 import GoogleAnalytics from './GoogleAnalytics';
 
 /**
- * Яндекс Метрика. Счётчик один на весь сайт, вставляется в корневом макете.
- * Цели, которые отправляются из интерфейса, перечислены в lib/metrika.js
+ * Аналитика сайта, подключается в корневом макете.
+ * - Первопартийный счётчик сквозной аналитики (панель vps-analytics) подключается ВСЕГДА,
+ *   на всех доменах, через rewrite /px/*. Ключ сайта data-site={SITE_KEY} зависит от домена
+ *   (servercalc.online → servercalc-online, serverselection.online → serverselection).
+ * - Яндекс.Метрика подключается только там, где задан её номер (на serverselection выключена).
+ * - Google Analytics подключается всегда.
+ * Цели Метрики перечислены в lib/metrika.js
  */
 export default function Metrika() {
-  // Если счётчик Метрики не задан (например, serverselection.online — только GA4),
-  // не подключаем ни Метрику, ни первопартийный счётчик — оставляем только Google Analytics.
-  if (!METRIKA_ID) return <GoogleAnalytics />;
-
-  const code = `
+  const code = METRIKA_ID ? `
 (function(m,e,t,r,i,k,a){
     m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
     m[i].l=1*new Date();
@@ -19,18 +20,22 @@ export default function Metrika() {
     k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
 })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=${METRIKA_ID}', 'ym');
 ym(${METRIKA_ID}, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});
-`.trim();
+`.trim() : null;
 
   return (
     <>
-      {/* Сквозная аналитика: счётчик первопартийный, идёт через rewrite /px/* */}
-      <Script id="px-counter" src="/px/t.js" strategy="afterInteractive" data-site="servercalc-online" />
-      <Script id="ym-counter" strategy="afterInteractive" dangerouslySetInnerHTML={{ __html: code }} />
-      <noscript>
-        <div>
-          <img src={`https://mc.yandex.ru/watch/${METRIKA_ID}`} style={{ position: 'absolute', left: '-9999px' }} alt="" />
-        </div>
-      </noscript>
+      {/* Сквозная аналитика: первопартийный счётчик, идёт через rewrite /px/*. Ключ зависит от домена. */}
+      <Script id="px-counter" src="/px/t.js" strategy="afterInteractive" data-site={SITE_KEY} />
+      {METRIKA_ID && (
+        <>
+          <Script id="ym-counter" strategy="afterInteractive" dangerouslySetInnerHTML={{ __html: code }} />
+          <noscript>
+            <div>
+              <img src={`https://mc.yandex.ru/watch/${METRIKA_ID}`} style={{ position: 'absolute', left: '-9999px' }} alt="" />
+            </div>
+          </noscript>
+        </>
+      )}
       <GoogleAnalytics />
     </>
   );
