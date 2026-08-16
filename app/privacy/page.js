@@ -75,22 +75,24 @@ export default function PrivacyPageEn() {
               used for profiling that carries legal consequences.
             </p>
 
-            <h2>4. Analytics systems</h2>
+            <h2>4. Analytics</h2>
+            {METRIKA_ID && (
+              <p>
+                Yandex Metrika (counter number {METRIKA_ID}) collects anonymized data about visitor
+                behavior, including a recording of actions in the interface, and processes it on its
+                own servers under the terms of use and privacy policy of Yandex LLC.
+              </p>
+            )}
             <p>
-              The service runs two analytics systems. Yandex Metrika (counter number {METRIKA_ID})
-              collects anonymized data about visitor behavior, including a recording of actions in the
-              interface, and processes it on its own servers under the terms of use and privacy policy
-              of Yandex LLC.
+              {METRIKA_ID ? 'The service also uses Google Analytics' : 'The service uses Google Analytics'}
+              {GA_ID ? ` (measurement ID ${GA_ID})` : ''}, which collects anonymized data about traffic
+              and interactions and processes it on Google’s servers under the Google terms of service
+              and privacy policy.
             </p>
             <p>
-              Google Analytics{GA_ID ? ` (measurement ID ${GA_ID})` : ''} collects anonymized data
-              about traffic and interactions and processes it on Google’s servers under the Google
-              terms of service and privacy policy.
-            </p>
-            <p>
-              You can opt out of this collection by installing a blocker, the official Yandex Metrika
-              opt-out add-on provided by Yandex, or the Google Analytics opt-out browser add-on
-              provided by Google.
+              You can opt out of this collection by installing a blocker
+              {METRIKA_ID ? ', the official Yandex Metrika opt-out add-on provided by Yandex,' : ''} or
+              the Google Analytics opt-out browser add-on provided by Google.
             </p>
 
             <h2>5. Affiliate clicks</h2>

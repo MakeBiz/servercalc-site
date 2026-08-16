@@ -39,7 +39,7 @@ const COOKIES = [
     kind: 'Analytics',
   },
   {
-    name: '_ga, _ga_WE8E8VWCS7',
+    name: `_ga, _ga_${(GA_ID || '').replace('G-', '')}`,
     who: 'Google Analytics',
     what: 'An anonymized visitor identifier and the Google Analytics session state. Used to count visits and distinguish visitors',
     life: '2 years',
@@ -83,7 +83,7 @@ export default function CookiePageEn() {
                   </tr>
                 </thead>
                 <tbody>
-                  {COOKIES.map((c) => (
+                  {COOKIES.filter((c) => METRIKA_ID || c.who !== 'Yandex Metrika').map((c) => (
                     <tr key={c.name}>
                       <td className="mono" style={{ fontSize: '0.82rem' }}>{c.name}</td>
                       <td>{c.who}</td>
@@ -115,9 +115,9 @@ export default function CookiePageEn() {
               there too.
             </p>
             <p>
-              Data collection by Yandex Metrika can be declined separately with the official browser
-              add-on provided by Yandex; Google Analytics collection can be declined with the official
-              opt-out add-on provided by Google, or with any blocker.
+              {METRIKA_ID
+                ? 'Data collection by Yandex Metrika can be declined separately with the official browser add-on provided by Yandex; Google Analytics collection can be declined with the official opt-out add-on provided by Google, or with any blocker.'
+                : 'Google Analytics collection can be declined with the official opt-out add-on provided by Google, or with any blocker.'}
             </p>
             <p>
               With cookies disabled the service keeps working: the matching, the catalog and the
@@ -127,9 +127,12 @@ export default function CookiePageEn() {
 
             <h2>Counters</h2>
             <p>
-              The Yandex Metrika counter number on the service is {METRIKA_ID}
-              {GA_ID ? `, and the Google Analytics measurement ID is ${GA_ID}` : ''}. Details of the
-              data processing are described in the{' '}
+              {METRIKA_ID
+                ? `The Yandex Metrika counter number on the service is ${METRIKA_ID}${GA_ID ? `, and the Google Analytics measurement ID is ${GA_ID}` : ''}.`
+                : GA_ID
+                  ? `The Google Analytics measurement ID on the service is ${GA_ID}.`
+                  : ''}{' '}
+              Details of the data processing are described in the{' '}
               <Link href="/privacy">privacy policy</Link>.
             </p>
           </div>
