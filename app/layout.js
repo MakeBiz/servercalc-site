@@ -50,6 +50,9 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body>
+        {/* Impact.com верификация сайта: raw-тег с атрибутом value= (не content=).
+            React 19 поднимает <meta> в <head>. Значение из кабинета Impact */}
+        <meta name="impact-site-verification" value="6fac83ed-2076-4858-806d-1709267f30cf" />
         <HtmlLang />
         <DemoStrip />
         <Header showPromos={HAS_PROMOS} />
