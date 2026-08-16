@@ -207,3 +207,5 @@ npm run start        # или pm2 start npm --name servercalc -- run start
 ```
 
 Дальше nginx проксирует 80 и 443 на порт 3000, сертификат через Let's Encrypt. Пересборку после работы парсера повесить на cron рядом с ним
+
+<!-- redeploy nudge 2026-08-16, застрявшая сборка serverselection -->
