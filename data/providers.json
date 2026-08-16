@@ -119,7 +119,8 @@
       "payoutInternal": "от 5 000 ₽"
     },
     "verifiedAt": "2026-08-02",
-    "descriptionEn": "A budget VPS with a fast start and locations in Russia, Europe and Kazakhstan. One of the lowest entry points among Russian providers"
+    "descriptionEn": "A budget VPS with a fast start and locations in Russia, Europe and Kazakhstan. One of the lowest entry points among Russian providers",
+    "enHidden": true
   },
   {
     "slug": "hostman",
@@ -590,7 +591,8 @@
       "payoutInternal": "от 200 ₽, только рублёвый счёт банка РФ"
     },
     "verifiedAt": "2026-08-02",
-    "descriptionEn": "A large Russian registrar and host. Convenient when you want domain, hosting and server in one account, with proper invoicing"
+    "descriptionEn": "A large Russian registrar and host. Convenient when you want domain, hosting and server in one account, with proper invoicing",
+    "enHidden": true
   },
   {
     "slug": "fornex",
@@ -815,7 +817,8 @@
       "payoutInternal": "только ИП или юрлицо по договору"
     },
     "verifiedAt": "2026-08-02",
-    "descriptionEn": "One of the older Russian VDS providers, with a range from budget servers to GPU and storage."
+    "descriptionEn": "One of the older Russian VDS providers, with a range from budget servers to GPU and storage.",
+    "enHidden": true
   },
   {
     "slug": "cloud4box",
@@ -872,7 +875,8 @@
       "note": "Партнёрка подтверждена, ссылка из выгрузки владельца",
       "payoutInternal": "условия в кабинете"
     },
-    "descriptionEn": "A Russian provider with its own data center in Moscow and a flexible configurator: resources are assembled for the task rather than picked from a fixed grid"
+    "descriptionEn": "A Russian provider with its own data center in Moscow and a flexible configurator: resources are assembled for the task rather than picked from a fixed grid",
+    "enHidden": true
   },
   {
     "slug": "cherry",
