@@ -33,7 +33,10 @@ export const metadata = {
   // Подтверждение владения в Google Search Console (serverselection). Рендерится как
   // <meta name="google-site-verification" content="...">. Тег общий для домена, на
   // servercalc.online он безвреден (просто не подтверждает чужую сущность)
-  verification: { google: 'EKfwLtnGQYW_-jFo0QeNBq3dnPAwb_eroHZ-gPnGk4k' },
+  verification: {
+    google: 'EKfwLtnGQYW_-jFo0QeNBq3dnPAwb_eroHZ-gPnGk4k',
+    yandex: 'd57e90403c04f2b6',
+  },
   alternates: { canonical: '/' },
   openGraph: {
     type: 'website',
