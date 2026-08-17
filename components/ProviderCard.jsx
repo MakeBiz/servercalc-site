@@ -26,10 +26,14 @@ export default function ProviderCard({ provider, minPrice, campaign, geoLabel, l
           <Link href={detail} className="prov-name">
             {provider.name}
           </Link>
-          <div className="prov-meta">
-            {provider.country === 'RU' ? tt.ruProvider : tt.foreignProvider}
-            {geoLabel ? `, ${geoLabel}` : ''}
-          </div>
+          {(() => {
+            // Английская версия не выделяет российские площадки отдельно:
+            // подпись «Russian/International provider» скрыта, остаётся только гео, если оно задано
+            const meta = en
+              ? geoLabel || ''
+              : `${provider.country === 'RU' ? tt.ruProvider : tt.foreignProvider}${geoLabel ? `, ${geoLabel}` : ''}`;
+            return meta ? <div className="prov-meta">{meta}</div> : null;
+          })()}
         </div>
       </div>
 

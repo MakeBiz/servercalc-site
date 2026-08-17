@@ -55,32 +55,12 @@ export default function ProvidersPageEn() {
 
       <section className="section paper">
         <div className="wrap">
-          <div className="eyebrow">
-            <span className="label">Russian providers</span>
-          </div>
           <p className="lead mb">
-            Data centers in Russia, contracts and proper invoicing for legal entities, and in-country
-            data residency
+            Locations in Europe, the USA, the UAE, Asia and worldwide. A fit when your project’s
+            audience is outside Russia or you need a specific host country
           </p>
           <div className="cards cards-2">
-            {[...ru].sort(sortByPrice).map((p) => (
-              <ProviderCard key={p.slug} provider={p} minPrice={minPriceOf(p.slug)} campaign={CAMPAIGN.providers} locale={LOCALE} />
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="section paper-alt">
-        <div className="wrap">
-          <div className="eyebrow">
-            <span className="label">International providers</span>
-          </div>
-          <p className="lead mb">
-            Locations in Europe, the USA, the UAE and worldwide. A fit when your project’s audience is
-            outside Russia or you need a specific host country
-          </p>
-          <div className="cards cards-2">
-            {[...intl].sort(sortByPrice).map((p) => (
+            {[...intl].sort(sortByPrice).concat([...ru].sort(sortByPrice)).map((p) => (
               <ProviderCard key={p.slug} provider={p} minPrice={minPriceOf(p.slug)} campaign={CAMPAIGN.providers} locale={LOCALE} />
             ))}
           </div>
