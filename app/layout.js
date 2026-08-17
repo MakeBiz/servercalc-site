@@ -30,6 +30,10 @@ export const metadata = {
     'Reference catalog of virtual servers: match a VPS by workload, resources and location, compare plans by price per resource, with a verification date on every price',
   applicationName: SITE_NAME,
   robots: { index: true, follow: true },
+  // Подтверждение владения в Google Search Console (serverselection). Рендерится как
+  // <meta name="google-site-verification" content="...">. Тег общий для домена, на
+  // servercalc.online он безвреден (просто не подтверждает чужую сущность)
+  verification: { google: 'EKfwLtnGQYW_-jFo0QeNBq3dnPAwb_eroHZ-gPnGk4k' },
   alternates: { canonical: '/' },
   openGraph: {
     type: 'website',
