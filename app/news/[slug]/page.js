@@ -104,6 +104,7 @@ export default async function PostPageEn({ params }) {
                   provider={provider}
                   campaign={`news_${provider.slug}`}
                   content={slug}
+                  place="news"
                   className="btn btn-brass"
                 >
                   Go to {provider.name}

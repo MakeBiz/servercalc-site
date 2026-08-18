@@ -2,7 +2,7 @@
 
 import { usePathname } from 'next/navigation';
 import { providerLink } from '@/lib/utm';
-import { goal, GOALS } from '@/lib/metrika';
+import { goal, GOALS, PLACE_GOAL } from '@/lib/metrika';
 import { localeFromPath } from '@/lib/i18n';
 
 /**
@@ -19,7 +19,7 @@ export default function OutLink({
   children,
   className = 'btn btn-brass btn-sm',
   showDisclosure = false,
-  funnel,
+  place,
 }) {
   const pathname = usePathname() || '/';
   const en = localeFromPath(pathname) === 'en';
@@ -43,9 +43,9 @@ export default function OutLink({
           });
           // и отдельная цель на каждого провайдера в формате go_<slug>
           goal(`go_${provider.slug}`);
-          // низ конкретной воронки: calc_click из результатов калькулятора,
-          // promo_click со страницы акций (для вкладки «Воронки» в панели)
-          if (funnel) goal(`${funnel}_click`, { provider: provider.slug });
+          // цель шага воронки по месту клика: calc_click / promo_click / news_click
+          const stepGoal = place && PLACE_GOAL[place];
+          if (stepGoal) goal(stepGoal, { provider: provider.slug });
         }}
       >
         {children || (partner

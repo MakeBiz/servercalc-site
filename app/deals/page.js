@@ -108,7 +108,7 @@ export default function DealsPageEn() {
                       provider={p.provider}
                       campaign={`akcii_${p.provider.slug}`}
                       content={p.id}
-                      funnel="promo"
+                      place="promo"
                       className="btn btn-brass btn-sm"
                     >
                       Get it at {p.provider.name}

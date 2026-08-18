@@ -105,6 +105,7 @@ export default async function PostPage({ params }) {
                   // партнёрки было видно, какая именно статья привела переход
                   campaign={`news_${provider.slug}`}
                   content={slug}
+                  place="news"
                   className="btn btn-brass"
                 >
                   Перейти на сайт {provider.name}
