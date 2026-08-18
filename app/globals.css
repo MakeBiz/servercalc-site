@@ -529,6 +529,19 @@ p:last-child { margin-bottom: 0; }
 
 .chips { display: flex; flex-wrap: wrap; gap: 8px; }
 
+/* Ровная сетка выбора нагрузки: все кнопки одной ширины, ряды выровнены.
+   Колонки подстраиваются под ширину панели, но остаются равными между собой */
+.chips-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(168px, 1fr));
+  gap: 8px;
+}
+.chips-grid .chip {
+  width: 100%;
+  min-height: 44px;
+  justify-content: flex-start;
+}
+
 .chip {
   display: inline-flex;
   align-items: center;

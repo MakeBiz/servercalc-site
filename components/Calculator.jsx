@@ -14,6 +14,9 @@ import { readParams, num, list, writeParams } from '@/lib/url-state';
 const RAM_STEPS = [1, 2, 4, 8, 16, 32, 64];
 const CPU_STEPS = [1, 2, 4, 6, 8, 12, 16];
 
+// Нагрузки, скрытые из кнопок калькулятора (посадочные страницы под них остаются)
+const CALC_HIDDEN_TASKS = ['1c-bitrix', 'n8n'];
+
 function nearestIndex(steps, value) {
   let best = 0;
   for (let i = 0; i < steps.length; i += 1) {
@@ -150,19 +153,24 @@ export default function Calculator({ payload, presetTask = null, presetGeo = 'an
             <span className="label">01 · {tt.task}</span>
             {taskObj && <span className="field-val">{tt.recommend(taskObj.cpu, taskObj.ram)}</span>}
           </div>
-          <div className="chips">
-            {payload.tasks.map((t2) => (
-              <button
-                key={t2.slug}
-                type="button"
-                className={task === t2.slug ? 'chip on' : 'chip'}
-                aria-pressed={task === t2.slug}
-                onClick={() => chooseTask(t2.slug)}
-              >
-                <TaskIcon slug={t2.slug} />
-                {nm(t2)}
-              </button>
-            ))}
+          <div className="chips chips-grid">
+            {payload.tasks
+              // 1С/Битрикс и n8n убраны из выбора калькулятора. Их посадочные
+              // страницы /vps-for/... остаются для органики; если пользователь
+              // пришёл на такую страницу, соответствующая кнопка всё равно показывается
+              .filter((t2) => !CALC_HIDDEN_TASKS.includes(t2.slug) || t2.slug === task)
+              .map((t2) => (
+                <button
+                  key={t2.slug}
+                  type="button"
+                  className={task === t2.slug ? 'chip on' : 'chip'}
+                  aria-pressed={task === t2.slug}
+                  onClick={() => chooseTask(t2.slug)}
+                >
+                  <TaskIcon slug={t2.slug} />
+                  {nm(t2)}
+                </button>
+              ))}
           </div>
           {taskObj && <p className="faint" style={{ marginTop: 10 }}>{en ? taskObj.intentEn || taskObj.intent : taskObj.intent}</p>}
         </div>
