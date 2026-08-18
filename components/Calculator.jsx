@@ -17,10 +17,12 @@ const CPU_STEPS = [1, 2, 4, 6, 8, 12, 16];
 // Нагрузки, скрытые из кнопок калькулятора (посадочные страницы под них остаются)
 const CALC_HIDDEN_TASKS = ['1c-bitrix', 'n8n'];
 
-// Локации, скрытые из кнопок калькулятора. «Глобально» убрано как дубль «Не важна»
-// (мировые тарифы всё равно попадают в выдачу при «Не важна»); Казахстан отнесён
-// к Азии (см. GEO_ALIASES в lib/score.js). Посадочные /vps-in/... остаются в индексе
-const CALC_HIDDEN_GEOS = ['globalno', 'kazahstan'];
+// Локации, скрытые из кнопок калькулятора. Казахстан отнесён к Азии всегда
+// (см. GEO_ALIASES в lib/score.js). «Глобально» скрыто в русской версии как дубль
+// «Не важна», но показано в английской: там нет кнопки «Россия» (нет тарифов под
+// EN), и «Глобально» доводит ряд ровно до 6 локаций. Посадочные /vps-in/... остаются
+const CALC_HIDDEN_GEOS_RU = ['globalno', 'kazahstan'];
+const CALC_HIDDEN_GEOS_EN = ['kazahstan'];
 
 function nearestIndex(steps, value) {
   let best = 0;
@@ -32,6 +34,7 @@ function nearestIndex(steps, value) {
 
 export default function Calculator({ payload, presetTask = null, presetGeo = 'any', campaign = CAMPAIGN.calculator, compact = false, split = false, locale = 'ru' }) {
   const en = locale === 'en';
+  const hiddenGeos = en ? CALC_HIDDEN_GEOS_EN : CALC_HIDDEN_GEOS_RU;
   const tt = t(locale).calc;
   const unitGb = en ? 'GB' : 'ГБ';
   const nm = (o) => (en ? o?.nameEn || o?.name : o?.name);
@@ -196,7 +199,7 @@ export default function Calculator({ payload, presetTask = null, presetGeo = 'an
                   {tt.geoAny}
                 </button>
                 {payload.geos
-                  .filter((g) => !CALC_HIDDEN_GEOS.includes(g.slug) || g.slug === geo)
+                  .filter((g) => !hiddenGeos.includes(g.slug) || g.slug === geo)
                   .map((g) => (
                     <button
                       key={g.slug}
@@ -215,7 +218,7 @@ export default function Calculator({ payload, presetTask = null, presetGeo = 'an
                   {tt.geoAny}
                 </button>
                 {payload.geos
-                  .filter((g) => !CALC_HIDDEN_GEOS.includes(g.slug) || g.slug === geo)
+                  .filter((g) => !hiddenGeos.includes(g.slug) || g.slug === geo)
                   .map((g) => (
                     <button
                       key={g.slug}
