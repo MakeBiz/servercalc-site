@@ -368,7 +368,7 @@ export default function Calculator({ payload, presetTask = null, presetGeo = 'an
                   </span>
                 </div>
                 <div className="res-price">{fmtPrice(r.plan.priceRub, locale)}<span className="faint"> {tt.perMonth}</span></div>
-                <OutLink provider={r.provider} campaign={campaign} className="btn btn-brass btn-sm btn-block">
+                <OutLink provider={r.provider} campaign={campaign} funnel="calc" className="btn btn-brass btn-sm btn-block">
                   {r.provider.partner ? tt.go : tt.toSite}
                 </OutLink>
               </div>

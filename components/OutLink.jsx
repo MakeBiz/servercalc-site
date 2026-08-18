@@ -19,6 +19,7 @@ export default function OutLink({
   children,
   className = 'btn btn-brass btn-sm',
   showDisclosure = false,
+  funnel,
 }) {
   const pathname = usePathname() || '/';
   const en = localeFromPath(pathname) === 'en';
@@ -42,6 +43,9 @@ export default function OutLink({
           });
           // и отдельная цель на каждого провайдера в формате go_<slug>
           goal(`go_${provider.slug}`);
+          // низ конкретной воронки: calc_click из результатов калькулятора,
+          // promo_click со страницы акций (для вкладки «Воронки» в панели)
+          if (funnel) goal(`${funnel}_click`, { provider: provider.slug });
         }}
       >
         {children || (partner
