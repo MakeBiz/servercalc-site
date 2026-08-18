@@ -17,6 +17,11 @@ const CPU_STEPS = [1, 2, 4, 6, 8, 12, 16];
 // Нагрузки, скрытые из кнопок калькулятора (посадочные страницы под них остаются)
 const CALC_HIDDEN_TASKS = ['1c-bitrix', 'n8n'];
 
+// Локации, скрытые из кнопок калькулятора. «Глобально» убрано как дубль «Не важна»
+// (мировые тарифы всё равно попадают в выдачу при «Не важна»); Казахстан отнесён
+// к Азии (см. GEO_ALIASES в lib/score.js). Посадочные /vps-in/... остаются в индексе
+const CALC_HIDDEN_GEOS = ['globalno', 'kazahstan'];
+
 function nearestIndex(steps, value) {
   let best = 0;
   for (let i = 0; i < steps.length; i += 1) {
@@ -181,7 +186,7 @@ export default function Calculator({ payload, presetTask = null, presetGeo = 'an
               <span className="label">02 · {tt.geo}</span>
             </div>
             {split ? (
-              <div className="chips">
+              <div className="chips chips-grid">
                 <button
                   type="button"
                   className={geo === 'any' ? 'chip on' : 'chip'}
@@ -190,33 +195,37 @@ export default function Calculator({ payload, presetTask = null, presetGeo = 'an
                 >
                   {tt.geoAny}
                 </button>
-                {payload.geos.map((g) => (
-                  <button
-                    key={g.slug}
-                    type="button"
-                    className={geo === g.slug ? 'chip on' : 'chip'}
-                    aria-pressed={geo === g.slug}
-                    onClick={() => { setGeo(g.slug); track('geo', { geo: g.slug }); }}
-                  >
-                    {nm(g)}
-                  </button>
-                ))}
+                {payload.geos
+                  .filter((g) => !CALC_HIDDEN_GEOS.includes(g.slug) || g.slug === geo)
+                  .map((g) => (
+                    <button
+                      key={g.slug}
+                      type="button"
+                      className={geo === g.slug ? 'chip on' : 'chip'}
+                      aria-pressed={geo === g.slug}
+                      onClick={() => { setGeo(g.slug); track('geo', { geo: g.slug }); }}
+                    >
+                      {nm(g)}
+                    </button>
+                  ))}
               </div>
             ) : (
               <div className="seg">
                 <button type="button" className={geo === 'any' ? 'on' : ''} onClick={() => { setGeo('any'); track('geo', { geo: 'any' }); }}>
                   {tt.geoAny}
                 </button>
-                {payload.geos.map((g) => (
-                  <button
-                    key={g.slug}
-                    type="button"
-                    className={geo === g.slug ? 'on' : ''}
-                    onClick={() => { setGeo(g.slug); track('geo', { geo: g.slug }); }}
-                  >
-                    {nm(g)}
-                  </button>
-                ))}
+                {payload.geos
+                  .filter((g) => !CALC_HIDDEN_GEOS.includes(g.slug) || g.slug === geo)
+                  .map((g) => (
+                    <button
+                      key={g.slug}
+                      type="button"
+                      className={geo === g.slug ? 'on' : ''}
+                      onClick={() => { setGeo(g.slug); track('geo', { geo: g.slug }); }}
+                    >
+                      {nm(g)}
+                    </button>
+                  ))}
               </div>
             )}
           </div>
@@ -295,7 +304,7 @@ export default function Calculator({ payload, presetTask = null, presetGeo = 'an
               <span className="label">06 · {tt.requirements}</span>
               {requirements.length > 0 && <span className="field-val">{tt.chosen(requirements.length)}</span>}
             </div>
-            <div className="chips">
+            <div className="chips chips-grid">
               {payload.requirements.map((r) => (
                 <button
                   key={r.code}

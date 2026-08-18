@@ -97,6 +97,18 @@
       "intentEn": "Staging, CI/CD runners, sandboxes and dev environments"
     },
     {
+      "slug": "pochta",
+      "icon": "✉️",
+      "name": "Почтовый сервер",
+      "nameEn": "Mail server",
+      "h1": "VPS под почтовый сервер",
+      "h1En": "VPS for a mail server",
+      "ram": 4,
+      "cpu": 2,
+      "intent": "Своя почта: Mailcow, Mail-in-a-Box, Postfix и Dovecot, корпоративные ящики",
+      "intentEn": "Your own email: Mailcow, Mail-in-a-Box, Postfix and Dovecot, corporate mailboxes"
+    },
+    {
       "slug": "n8n",
       "icon": "⚡",
       "name": "n8n и автоматизация",

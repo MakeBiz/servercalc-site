@@ -53,6 +53,12 @@ const PATHS = {
       <path d="m7 6.5-4 3.5 4 3.5M13 6.5l4 3.5-4 3.5M11.5 4.5l-3 11" />
     </>
   ),
+  pochta: (
+    <>
+      <rect x="2.5" y="4.5" width="15" height="11" rx="2" />
+      <path d="m3 6.5 7 5 7-5" />
+    </>
+  ),
   vydelennyj: (
     <>
       <rect x="2.5" y="3.5" width="15" height="5.5" rx="1.5" />
